@@ -287,6 +287,188 @@ function initFactsCounter() {
 }
 
 /**
+ * Инициализация анимации для секции How it Works
+ */
+function initHowAnimation() {
+    try {
+        // Проверяем наличие GSAP
+        if (typeof gsap === 'undefined') {
+            console.warn('GSAP не найден, анимация How it Works не будет работать');
+            return;
+        }
+
+        const howSection = document.querySelector('.how');
+        if (!howSection) return;
+
+        const howItems = howSection.querySelectorAll('.how__item');
+        const howActions = howSection.querySelector('.how__actions');
+
+        if (howItems.length === 0 || !howActions) return;
+
+        // Создаем Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Timeline для последовательной анимации
+                    const timeline = gsap.timeline();
+
+                    // Анимация шагов по очереди (снизу вверх)
+                    howItems.forEach((item, index) => {
+                        timeline.fromTo(item,
+                            {
+                                opacity: 0,
+                                y: 30
+                            },
+                            {
+                                opacity: 1,
+                                y: 0,
+                                duration: 0.6,
+                                ease: 'power3.out'
+                            },
+                            index * 0.2 // Задержка между шагами
+                        );
+                    });
+
+                    // После всех шагов - кнопки с эффектом bounce
+                    timeline.fromTo(howActions,
+                        {
+                            opacity: 0,
+                            y: 30
+                        },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.8,
+                            ease: 'back.out(1.7)' // Эффект отскока
+                        },
+                        '+=0.1' // Небольшая пауза после последнего шага
+                    );
+
+                    // Прекращаем наблюдение после запуска
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.3 // Запускаем когда 30% блока видно
+        });
+
+        observer.observe(howSection);
+
+    } catch (error) {
+        console.error("Error in " + arguments.callee.name + ":", error);
+    }
+}
+
+/**
+ * Инициализация анимации для секции Table (сравнение)
+ */
+function initTableAnimation() {
+    try {
+        // Проверяем наличие GSAP
+        if (typeof gsap === 'undefined') {
+            console.warn('GSAP не найден, анимация Table не будет работать');
+            return;
+        }
+
+        const tableSection = document.querySelector('.table');
+        if (!tableSection) return;
+
+        const sectionTitle = tableSection.querySelector('.section__title');
+        const headerItems = tableSection.querySelectorAll('.header-item');
+        const compTable = tableSection.querySelector('.comp-table');
+
+        if (!sectionTitle || !compTable) return;
+
+        // Получаем все строки из всех колонок
+        const allRows = [];
+        const compBodies = compTable.querySelectorAll('.comp-body');
+
+        // Определяем количество строк
+        const rowCount = compBodies[0]?.querySelectorAll('.comp-row').length || 0;
+
+        // Группируем строки по индексу (одна строка = 3 элемента из разных колонок)
+        for (let i = 0; i < rowCount; i++) {
+            const rowGroup = [];
+            compBodies.forEach(body => {
+                const row = body.querySelectorAll('.comp-row')[i];
+                if (row) rowGroup.push(row);
+            });
+            if (rowGroup.length > 0) {
+                allRows.push(rowGroup);
+            }
+        }
+
+        // Создаем Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Timeline для последовательной анимации
+                    const timeline = gsap.timeline();
+
+                    // 1. Появление заголовка
+                    timeline.fromTo(sectionTitle,
+                        {
+                            opacity: 0,
+                            y: 30
+                        },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.6,
+                            ease: 'power3.out'
+                        }
+                    );
+
+                    // 2. Одновременное появление заголовков колонок
+                    timeline.fromTo(headerItems,
+                        {
+                            opacity: 0,
+                            y: 20
+                        },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.5,
+                            ease: 'power3.out',
+                            stagger: 0
+                        },
+                        '+=0.2' // Небольшая пауза после заголовка
+                    );
+
+                    // 3. Последовательное появление строк
+                    allRows.forEach((rowGroup, index) => {
+                        timeline.fromTo(rowGroup,
+                            {
+                                opacity: 0,
+                                x: -20
+                            },
+                            {
+                                opacity: 1,
+                                x: 0,
+                                duration: 0.4,
+                                ease: 'power2.out',
+                                stagger: 0
+                            },
+                            `-=${index === 0 ? 0.2 : 0.25}` // Первая строка с меньшей задержкой
+                        );
+                    });
+
+                    // Прекращаем наблюдение после запуска
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2 // Запускаем когда 20% блока видно
+        });
+
+        observer.observe(tableSection);
+
+    } catch (error) {
+        console.error("Error in " + arguments.callee.name + ":", error);
+    }
+}
+
+/**
  * Инициализация lazy load для изображений
  */
 function initLazyLoad() {
@@ -402,6 +584,8 @@ function initScript() {
         initSpecials();
         initLazyLoad();
         initFactsCounter();
+        initHowAnimation();
+        initTableAnimation();
     } catch (error) {
         console.error("Error in " + arguments.callee.name + ":", error);
     }

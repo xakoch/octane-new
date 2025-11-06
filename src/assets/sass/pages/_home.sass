@@ -30,7 +30,8 @@
 		height: 600px
 		position: relative
 
-		img
+		img,
+		video
 			position: absolute
 			bottom: 0
 			right: 0
@@ -173,6 +174,8 @@
 		display: flex
 		align-items: center
 		grid-gap: 20px
+		opacity: 0
+		transform: translateY(30px)
 
 		span
 			border: 1px solid $primary
@@ -188,7 +191,7 @@
 		h4
 			font-size: 20px
 			+med
-		
+
 		p
 			font-size: 18px
 			+lig
@@ -198,6 +201,8 @@
 		display: flex
 		align-items: center
 		grid-gap: 20px
+		opacity: 0
+		transform: translateY(30px)
 
 //=============================================
 // Mobile App - Section
@@ -316,6 +321,10 @@
 .table
 	padding-bottom: 100px
 
+	.section__title
+		opacity: 0
+		transform: translateY(30px)
+
 	.comp-table
 		display: grid
 		grid-template-columns: 1fr 1fr 1fr
@@ -347,6 +356,14 @@
 	.header-item:first-child
 		background: transparent
 		border: none
+
+	.header-item
+		opacity: 0
+		transform: translateY(20px)
+
+	.comp-row
+		opacity: 0
+		transform: translateX(-20px)
 
 	.header-item
 		// text-align: center
