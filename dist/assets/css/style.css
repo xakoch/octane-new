@@ -231,6 +231,7 @@ hr {
 
 .header {
     padding: 20px 0;
+    background: #ffffff;
 }
 
 .header .container {
@@ -1207,6 +1208,7 @@ button.swiper-pagination-bullet {
 
 .hero {
     height: 600px;
+    background: #ffffff;
 }
 
 .hero h1 {

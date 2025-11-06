@@ -349,7 +349,7 @@ function initHowAnimation() {
                 }
             });
         }, {
-            threshold: 0.3 // Запускаем когда 30% блока видно
+            threshold: 0.5 // Запускаем когда 50% блока видно
         });
 
         observer.observe(howSection);
