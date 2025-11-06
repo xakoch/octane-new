@@ -384,6 +384,13 @@ hr {
     grid-gap: 20px;
 }
 
+.features__item img {
+    width: 80px;
+    height: 80px;
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+
 .features__item h4 {
     font-size: 20px;
     font-family: "Inter Tight", sans-serif;
