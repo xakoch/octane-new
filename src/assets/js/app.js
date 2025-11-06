@@ -178,6 +178,54 @@ function initFaq() {
 }
 
 /**
+ * Инициализация раскрытия Special Offers
+ */
+function initSpecials() {
+    try {
+        const specialsItems = document.querySelectorAll('.specials__item');
+
+        if (specialsItems.length === 0) return;
+
+        specialsItems.forEach(item => {
+            const link = item.querySelector('.link');
+
+            if (!link) return;
+
+            // Сохраняем оригинальный текст
+            const originalText = link.textContent;
+            const expandedText = 'hide';
+
+            // Обработчик клика на link
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+
+                const isExpanded = item.classList.contains('expanded');
+
+                if (isExpanded) {
+                    // Закрываем
+                    item.classList.remove('expanded');
+                    link.textContent = originalText;
+                } else {
+                    // Открываем
+                    item.classList.add('expanded');
+                    link.textContent = expandedText;
+                }
+
+                // Если используется Lenis, обновляем его после анимации
+                if (window.lenis) {
+                    setTimeout(() => {
+                        window.lenis.resize();
+                    }, 400);
+                }
+            });
+        });
+
+    } catch (error) {
+        console.error("Error in " + arguments.callee.name + ":", error);
+    }
+}
+
+/**
  * Запускает все скрипты на новой странице
  */
 function initScript() {
@@ -186,6 +234,7 @@ function initScript() {
         initWindowInnerheight();
         initSwiperSlider();
         initFaq();
+        initSpecials();
     } catch (error) {
         console.error("Error in " + arguments.callee.name + ":", error);
     }

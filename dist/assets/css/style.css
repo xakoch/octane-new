@@ -1840,6 +1840,127 @@ button.swiper-pagination-bullet {
     width: fit-content;
 }
 
+.specials {
+    padding: 100px 0;
+}
+
+.specials__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    margin-top: 50px;
+    align-items: flex-start;
+}
+
+.specials__item {
+    border-radius: 8px;
+    background: #ffffff;
+    padding: 30px;
+    transition: background 0.6s ease-in-out;
+}
+
+.specials__item.expanded {
+    background: linear-gradient(135deg, rgba(255, 208, 30, 0.15) 0%, rgba(255, 82, 10, 0.15) 100%);
+}
+
+.specials__item.expanded .specials__title {
+    height: auto;
+}
+
+.specials__item.expanded .specials__span {
+    color: #FF520A;
+    background: rgba(255, 82, 10, 0.1);
+}
+
+.specials__hidden {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out, transform 0.6s ease-in-out, margin 0.6s ease-in-out;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.specials__item.expanded .specials__hidden {
+    max-height: 800px;
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 20px;
+    transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out, transform 0.6s ease-in-out, margin 0.6s ease-in-out;
+}
+
+.specials__title {
+    height: 90px;
+}
+
+.specials__title h3 {
+    font-size: 24px;
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    margin: 30px 0 0 !important;
+}
+
+.specials__text p {
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 140%;
+}
+
+.specials__footer {
+    margin: 20px 0;
+}
+
+.specials__footer h5 {
+    font-size: 18px;
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    margin-bottom: 8px;
+}
+
+.specials__footer p {
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.specials__footer a {
+    color: #FF520A;
+}
+
+.specials__span {
+    padding: 6px 12px;
+    background: linear-gradient(90deg, #FFD01E 0%, #FF520A 100%);
+    display: inline-block;
+    color: #ffffff;
+    border-radius: 40px;
+    font-size: 20px;
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.specials .link {
+    color: #FF520A;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.specials .link:hover {
+    opacity: 0.7;
+}
+
 .faq {
     padding-bottom: 100px;
 }

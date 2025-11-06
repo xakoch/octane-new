@@ -515,6 +515,90 @@
 			width: fit-content
 
 //=============================================
+// Specials - Section
+//=============================================
+.specials
+	padding: 100px 0
+	&__list
+		display: grid
+		grid-template-columns: repeat(3, 1fr)
+		grid-gap: 30px
+		margin-top: 50px
+		align-items: flex-start
+	&__item
+		+br(8px)
+		background: $w
+		padding: 30px
+		transition: background 0.6s ease-in-out
+
+		&.expanded
+			background: linear-gradient(135deg, rgba(#FFD01E, 0.15) 0%, rgba(#FF520A, 0.15) 100%)
+			.specials__title
+				height: auto
+			.specials__span
+				color: $primary
+				background: rgba($primary, 0.1)
+
+	&__hidden
+		max-height: 0
+		overflow: hidden
+		opacity: 0
+		transform: translateY(-10px)
+		transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out, transform 0.6s ease-in-out, margin 0.6s ease-in-out
+		margin: 0
+		margin-bottom: 20px
+
+	&__item.expanded &__hidden
+		max-height: 800px
+		opacity: 1
+		transform: translateY(0)
+		margin-top: 20px
+		transition: max-height 0.6s ease-in-out, opacity 0.6s ease-in-out, transform 0.6s ease-in-out, margin 0.6s ease-in-out
+
+	&__title
+		height: 90px
+		h3
+			font-size: 24px
+			+med
+			margin: 30px 0 0 !important
+
+	&__text
+		p
+			+lig
+			font-size: 18px
+			line-height: 140%
+
+	&__footer
+		margin: 20px 0
+		h5
+			font-size: 18px
+			+med
+			margin-bottom: 8px
+		p
+			+lig
+			font-size: 16px
+		a
+			color: $primary
+
+	&__span
+		padding: 6px 12px
+		background: linear-gradient(90deg, #FFD01E 0%, #FF520A 100%)
+		display: inline-block
+		color: $w
+		+br(40px)
+		font-size: 20px
+		+med
+
+	.link
+		color: $primary
+		transition: color 0.3s ease
+		cursor: pointer
+		display: inline-block
+
+		&:hover
+			opacity: 0.7
+
+//=============================================
 // FAQ - Section
 //=============================================
 .faq
