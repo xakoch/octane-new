@@ -178,6 +178,115 @@ function initFaq() {
 }
 
 /**
+ * Инициализация анимации счётчика для фактов
+ */
+function initFactsCounter() {
+    try {
+        const counters = document.querySelectorAll('.counter');
+
+        if (counters.length === 0) return;
+
+        // Функция для форматирования чисел с запятыми
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Функция анимации счётчика
+        function animateCounter(counter, delay) {
+            const target = parseInt(counter.getAttribute('data-target'));
+            const duration = 2000; // 2 секунды для более плавной анимации
+            const startTime = performance.now() + (delay * 1000);
+            let previousValue = 0;
+
+            function update(currentTime) {
+                if (currentTime < startTime) {
+                    requestAnimationFrame(update);
+                    return;
+                }
+
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Более плавная easing функция (easeOutQuart)
+                const easeProgress = 1 - Math.pow(1 - progress, 4);
+
+                const current = easeProgress * target;
+                const rounded = Math.round(current);
+
+                // Обновляем только если значение изменилось
+                if (rounded !== previousValue) {
+                    counter.textContent = formatNumber(rounded);
+                    previousValue = rounded;
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    counter.textContent = formatNumber(target);
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // Проверяем наличие GSAP
+        if (typeof gsap === 'undefined') {
+            console.warn('GSAP не найден, анимация счётчика не будет работать');
+            return;
+        }
+
+        // Создаем Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const factsBottom = entry.target;
+                    const items = factsBottom.querySelectorAll('.facts__item');
+
+                    // GSAP анимация появления карточек снизу вверх
+                    gsap.fromTo(items,
+                        {
+                            opacity: 0,
+                            y: 30
+                        },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            duration: 0.8,
+                            stagger: 0.15,
+                            ease: 'power3.out',
+                            onStart: function() {
+                                // Запускаем счётчики с задержкой
+                                items.forEach((item, index) => {
+                                    const counter = item.querySelector('.counter');
+                                    if (counter && !counter.classList.contains('animated')) {
+                                        counter.classList.add('animated');
+                                        animateCounter(counter, index * 0.15);
+                                    }
+                                });
+                            }
+                        }
+                    );
+
+                    // Прекращаем наблюдение после запуска
+                    observer.unobserve(factsBottom);
+                }
+            });
+        }, {
+            threshold: 0.3 // Запускаем когда 30% блока видно
+        });
+
+        // Наблюдаем за контейнером
+        const factsBottom = document.querySelector('.facts__bottom');
+        if (factsBottom) {
+            observer.observe(factsBottom);
+        }
+
+    } catch (error) {
+        console.error("Error in " + arguments.callee.name + ":", error);
+    }
+}
+
+/**
  * Инициализация lazy load для изображений
  */
 function initLazyLoad() {
@@ -292,6 +401,7 @@ function initScript() {
         initFaq();
         initSpecials();
         initLazyLoad();
+        initFactsCounter();
     } catch (error) {
         console.error("Error in " + arguments.callee.name + ":", error);
     }

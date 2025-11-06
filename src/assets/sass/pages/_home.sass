@@ -57,16 +57,28 @@
 		display: flex
 		align-items: center
 		grid-gap: 20px
+		transition: transform 0.3s ease, box-shadow 0.3s ease
+		cursor: pointer
 
+		&:hover
+			transform: scale(1.03)
+			// box-shadow: 0 8px 20px rgba($b1, 0.1)
+
+			.features__img img
+				animation: iconBounce 0.6s ease
+
+	&__img
 		img
 			width: 80px
 			height: 80px
 			object-fit: contain
+			transition: transform 0.3s ease
 
+	&__info
 		h4
 			font-size: 20px
 			+med
-		
+
 		p
 			font-size: 18px
 			+lig
@@ -81,6 +93,16 @@
 			font-size: 20px
 			+med
 			margin-bottom: 20px
+
+@keyframes iconBounce
+	0%, 100%
+		transform: translateY(0)
+	25%
+		transform: translateY(-6px)
+	50%
+		transform: translateY(-3px)
+	75%
+		transform: translateY(-5px)
 
 //=============================================
 // Facts - Section
@@ -104,6 +126,8 @@
 	&__item
 		border-top: 1px solid $b1
 		padding-top: 20px
+		opacity: 0
+		transform: translateY(30px)
 
 		&:last-child
 			border-top-color: transparent
@@ -112,9 +136,13 @@
 			align-items: flex-end
 
 		h3
-			font-size: 48px
+			font-size: 40px
 			+med
-		
+			font-variant-numeric: tabular-nums
+
+			.counter
+				display: inline
+
 		p
 			font-size: 18px
 			+lig
