@@ -178,6 +178,62 @@ function initFaq() {
 }
 
 /**
+ * Инициализация lazy load для изображений
+ */
+function initLazyLoad() {
+    try {
+        const lazyImages = document.querySelectorAll('img.lazy-load');
+
+        if (lazyImages.length === 0) return;
+
+        // Создаем Intersection Observer
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const highResSrc = img.getAttribute('data-src');
+
+                    if (highResSrc) {
+                        // Создаем новое изображение для предзагрузки
+                        const highResImage = new Image();
+
+                        highResImage.onload = () => {
+                            // Когда изображение загружено, плавно заменяем
+                            img.style.opacity = '0';
+
+                            setTimeout(() => {
+                                img.src = highResSrc;
+                                img.removeAttribute('data-src');
+                                img.classList.add('loaded');
+
+                                setTimeout(() => {
+                                    img.style.opacity = '1';
+                                }, 50);
+                            }, 300);
+                        };
+
+                        highResImage.src = highResSrc;
+
+                        // Прекращаем наблюдение за этим изображением
+                        observer.unobserve(img);
+                    }
+                }
+            });
+        }, {
+            rootMargin: '50px' // Начинаем загрузку за 50px до появления в viewport
+        });
+
+        // Наблюдаем за всеми ленивыми изображениями
+        lazyImages.forEach(img => {
+            imageObserver.observe(img);
+        });
+
+    } catch (error) {
+        console.error("Error in " + arguments.callee.name + ":", error);
+    }
+}
+
+/**
  * Инициализация раскрытия Special Offers
  */
 function initSpecials() {
@@ -235,6 +291,7 @@ function initScript() {
         initSwiperSlider();
         initFaq();
         initSpecials();
+        initLazyLoad();
     } catch (error) {
         console.error("Error in " + arguments.callee.name + ":", error);
     }

@@ -1264,6 +1264,13 @@ button.swiper-pagination-bullet {
     padding-bottom: 100px;
 }
 
+.facts__top img {
+    width: 100%;
+    height: auto;
+    transition: opacity 0.6s ease-in-out;
+    display: block;
+}
+
 .facts__bottom {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1841,7 +1848,7 @@ button.swiper-pagination-bullet {
 }
 
 .specials {
-    padding: 100px 0;
+    padding-bottom: 100px;
 }
 
 .specials__list {
@@ -1948,6 +1955,85 @@ button.swiper-pagination-bullet {
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
+}
+
+.specials__bottom {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 560px 1fr 520px;
+    margin-top: 50px;
+}
+
+.specials__bottom h3 {
+    font-size: 32px;
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.specials__bottom .form {
+    width: 100%;
+}
+
+.specials__bottom .form__group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    grid-gap: 10px;
+}
+
+.specials__bottom .form [type=email] {
+    border: 1px solid #EBEBEB;
+    background: #ffffff;
+    border-radius: 40px;
+    font-size: 18px;
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    color: #1a1a1a;
+    padding: 14px 18px;
+    min-width: 360px;
+}
+
+.specials__bottom .form [type=email]:hover {
+    border: 1px solid #c9c9c9;
+}
+
+.specials__bottom .form [type=email]:focus, .specials__bottom .form [type=email]:active {
+    border: 1px solid #FF520A;
+}
+
+.specials__bottom .form [type=email]:placeholder {
+    color: #1a1a1a;
+    font-size: 18px;
+}
+
+.specials__bottom .form [type=submit] {
+    min-width: 150px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background: #FF520A;
+    height: 100%;
+    padding: 14px 18px;
+    border-radius: 40px;
+    font-size: 16px;
+}
+
+.specials__bottom span {
+    font-size: 12px;
+    line-height: 130%;
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    margin-top: 20px;
+    display: block;
 }
 
 .specials .link {

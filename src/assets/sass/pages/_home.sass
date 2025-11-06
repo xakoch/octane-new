@@ -87,7 +87,14 @@
 //=============================================
 .facts
 	padding-bottom: 100px
-	
+
+	&__top
+		img
+			width: 100%
+			height: auto
+			transition: opacity 0.6s ease-in-out
+			display: block
+
 	&__bottom
 		display: grid
 		grid-template-columns: repeat(3, 1fr)
@@ -518,7 +525,7 @@
 // Specials - Section
 //=============================================
 .specials
-	padding: 100px 0
+	padding-bottom: 100px
 	&__list
 		display: grid
 		grid-template-columns: repeat(3, 1fr)
@@ -588,6 +595,56 @@
 		+br(40px)
 		font-size: 20px
 		+med
+
+	&__bottom
+		display: grid
+		align-items: center
+		grid-template-columns: 560px 1fr 520px
+		margin-top: 50px
+		h3
+			font-size: 32px
+			+med
+		.form
+			width: 100%
+			&__group
+				display: flex
+				align-items: center
+				justify-content: flex-end
+				grid-gap: 10px
+			[type="email"]
+				border: 1px solid #EBEBEB
+				background: $w
+				+br(40px)
+				font-size: 18px
+				+lig
+				color: $b1
+				padding: 14px 18px
+				min-width: 360px
+				&:hover
+					border: 1px solid $c9
+				&:focus,
+				&:active
+					border: 1px solid $primary
+				&:placeholder
+					color: $b1
+					font-size: 18px
+			[type="submit"]
+				min-width: 150px
+				color: $w
+				text-transform: uppercase
+				+reg
+				background: $primary
+				height: 100%
+				padding: 14px 18px
+				+br(40px)
+				font-size: 16px
+
+		span
+			font-size: 12px
+			line-height: 130%
+			+lig
+			margin-top: 20px
+			display: block
 
 	.link
 		color: $primary
