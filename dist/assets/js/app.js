@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // Инициализация Lenis для плавного скролла
 let lenis;
 
-
 function initLenis() {
     try {
         if (typeof Lenis === 'undefined') {
@@ -69,6 +68,67 @@ function initWindowInnerheight() {
     }
 }
 
+/**************************************************************
+* Swiper Sliders
+**************************************************************/
+function initSwiperSlider() {
+    try {
+        if (typeof Swiper === 'undefined') {
+            console.warn('Swiper не найден');
+            return;
+        }
+
+        // Offers Slider
+        const offersSlider = document.querySelector('.offers__slider');
+        if (offersSlider) {
+            const swiper = new Swiper('.offers__slider', {
+                slidesPerView: "auto",
+                centeredSlides: true,
+                spaceBetween: 30,
+                // loop: true,
+                // autoplay: {
+                //     delay: 3000,
+                //     disableOnInteraction: false,
+                // },
+                navigation: {
+                    nextEl: '.offers__arrows-right',
+                    prevEl: '.offers__arrows-left',
+                },
+                breakpoints: {
+                    // 768: {
+                    //     slidesPerView: 2,
+                    //     spaceBetween: 20,
+                    // },
+                    // 1024: {
+                    //     slidesPerView: 3,
+                    //     spaceBetween: 20,
+                    // },
+                    1200: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    }
+                },
+                on: {
+                    init: function() {
+                        // Добавляем класс при инициализации
+                        this.wrapperEl.classList.add('swiper-wrapper-reset');
+
+                        // Автоматически переключаем на следующий слайд и убираем класс
+                        setTimeout(() => {
+                            this.wrapperEl.classList.remove('swiper-wrapper-reset');
+                            this.slideNext(0); // 0 = без анимации
+                        }, 100);
+                    }
+                }
+            });
+        }
+
+        console.log('Swiper sliders initialized successfully');
+    } catch (error) {
+        console.error('Error in initSwiperSlider:', error);
+    }
+}
+
 /**
  * Инициализация FAQ аккордеона
  */
@@ -124,6 +184,7 @@ function initScript() {
     try {
         initLenis();
         initWindowInnerheight();
+        initSwiperSlider();
         initFaq();
     } catch (error) {
         console.error("Error in " + arguments.callee.name + ":", error);

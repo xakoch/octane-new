@@ -426,6 +426,95 @@
 			text-align: right
 
 //=============================================
+// Offers - Section
+//=============================================
+.offers
+	padding: 100px 0
+
+	&__arrows
+		display: flex
+		align-items: flex-start
+		grid-gap: 10px
+		&-btn
+			cursor: pointer
+			display: block
+			width: 40px
+			height: 40px
+			transition: transform 0.3s ease
+			svg
+				display: block
+				width: 100%
+				height: 100%
+				rect
+					transition: fill 0.3s ease, stroke 0.3s ease
+				path
+					transition: fill 0.3s ease
+		&-left
+			transform: rotate(180deg)
+			&:hover
+				transform: rotate(180deg) translateX(5px)
+		&-right:hover
+			transform: translateX(5px)
+		&-btn:hover
+			svg
+				rect
+					fill: $primary
+					stroke: $primary
+				path
+					fill: $w
+
+	&__slider
+		margin-top: 50px
+
+		&.swiper
+			overflow: visible !important
+
+		.swiper-wrapper-reset
+			transform: translate3d(0, 0, 0) !important
+
+	&__item
+		+br(8px)
+		background: linear-gradient(180deg, rgba(255, 82, 10, 0.2) 0%, rgba(255, 209, 30, 0.2) 100%)
+		overflow: hidden
+		&.right
+			.offers__media
+				display: flex
+				justify-content: flex-end
+		&.center
+			.offers__media
+				display: flex
+				justify-content: center
+		&.stretch
+			.offers__media
+				img
+					width: 100%
+
+	&__text
+		padding: 30px
+		h3
+			font-size: 24px
+			+med
+		ul
+			display: flex
+			flex-direction: column
+			grid-gap: 10px
+			margin: 10px 0 0 !important
+			list-style-type: disc
+			padding-left: 30px
+		li
+			+lig
+			font-size: 18px
+	&__actions
+		display: flex
+		align-items: center
+		grid-gap: 25px
+		padding: 0 30px
+	&__media
+		margin-top: 30px
+		img
+			width: fit-content
+
+//=============================================
 // FAQ - Section
 //=============================================
 .faq
