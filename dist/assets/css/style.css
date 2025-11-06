@@ -328,7 +328,17 @@ hr {
     grid-gap: 20px;
 }
 
-.footer__links ul a {
+.footer__links li {
+    display: flex;
+    align-items: center;
+    grid-gap: 8px;
+}
+
+.footer__links img {
+    max-width: 24px;
+}
+
+.footer__links a {
     color: #1a1a1a;
     font-size: 16px;
     font-family: "Inter Tight", sans-serif;
@@ -338,7 +348,7 @@ hr {
     transition: all 0.2s ease;
 }
 
-.footer__links ul a:hover {
+.footer__links a:hover {
     color: #FF520A;
 }
 
