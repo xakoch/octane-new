@@ -1,0 +1,26 @@
+.header
+	padding: 20px 0
+
+	.container
+		display: flex
+		align-items: center
+		justify-content: space-between
+
+	&__menu
+		display: flex
+		align-items: center
+		grid-gap: 40px
+
+		a
+			+lig
+			font-size: 16px
+			color: $b1
+			line-height: 100%
+			+trans(color)
+			&:hover
+				color: $primary
+
+	&__actions
+		display: flex
+		align-items: center
+		grid-gap: 10px

@@ -1,0 +1,345 @@
+//=============================================
+// Hero - Section
+//=============================================
+.hero
+	height: 600px
+	
+	h1
+		font-size: 56px
+		line-height: 120%
+		+med
+
+	p
+		margin: 20px 0 40px
+		+lig
+		font-size: 18px
+		line-height: 130%
+
+	&__inner
+		display: grid
+		align-items: center
+		grid-template-columns: 1fr 1fr
+		position: relative
+
+	&__actions
+		display: flex
+		align-items: center
+		grid-gap: 20px
+
+	&__media
+		height: 600px
+		position: relative
+
+		img
+			position: absolute
+			bottom: 0
+			right: 0
+			height: 100%
+			object-fit: contain
+			object-position: bottom
+
+//=============================================
+// Features - Section
+//=============================================
+.features
+	padding: 100px 0
+
+	&__list
+		display: grid
+		grid-template-columns: repeat(3, 1fr)
+		grid-gap: 30px
+
+	&__item
+		+br(8px)
+		position: relative
+		border: 1px solid rgba($b1, .2)
+		padding: 30px 20px
+		display: flex
+		align-items: center
+		grid-gap: 20px
+
+		h4
+			font-size: 20px
+			+med
+		
+		p
+			font-size: 18px
+			+lig
+			margin-top: 10px
+
+	&__footer
+		margin-top: 50px
+		display: flex
+		align-items: center
+		flex-direction: column
+		p
+			font-size: 20px
+			+med
+			margin-bottom: 20px
+
+//=============================================
+// Facts - Section
+//=============================================
+.facts
+	padding-bottom: 100px
+	
+	&__bottom
+		display: grid
+		grid-template-columns: repeat(3, 1fr)
+		grid-gap: 60px
+		margin-top: 60px
+	
+	&__item
+		border-top: 1px solid $b1
+		padding-top: 20px
+
+		&:last-child
+			border-top-color: transparent
+			display: flex
+			justify-content: flex-end
+			align-items: flex-end
+
+		h3
+			font-size: 48px
+			+med
+		
+		p
+			font-size: 18px
+			+lig
+			margin-top: 10px
+
+
+//=============================================
+// How it works - Section
+//=============================================
+.how
+	padding: 100px 0
+
+	&__inner
+		display: grid
+		grid-template-columns: 1fr 1fr
+		grid-gap: 100px
+
+	&__media
+		display: flex
+		justify-content: center
+
+	&__list
+		margin: 50px 0
+		display: flex
+		flex-direction: column
+		grid-gap: 30px
+
+	&__item
+		display: flex
+		align-items: center
+		grid-gap: 20px
+
+		span
+			border: 1px solid $primary
+			color: $primary
+			font-size: 16px
+			+med
+			display: block
+			width: 48px
+			height: 48px
+			+br(50%)
+			+flex
+
+		h4
+			font-size: 20px
+			+med
+		
+		p
+			font-size: 18px
+			+lig
+			margin-top: 10px
+
+	&__actions
+		display: flex
+		align-items: center
+		grid-gap: 20px
+
+
+//=============================================
+// Mobile App - Section
+//=============================================
+.app
+	background: linear-gradient(to bottom, #F5F5F5 35%, #FF840A 80%, #FF520A 100%)
+	margin-bottom: 100px
+
+	&__header
+		text-align: center
+		h2
+			font-size: 48px
+			+med
+			line-height: 120%
+		p
+			font-size: 18px
+			+lig
+			margin: 30px 0
+
+	&__actions
+		display: flex
+		align-items: center
+		grid-gap: 20px
+		justify-content: center
+
+	&__inner
+		display: grid
+		grid-template-columns: 1fr 22em 1fr
+		align-items: center
+		grid-gap: 100px
+		margin-top: 60px
+
+	&__item
+		// border: 1px solid yellow
+		position: relative
+
+	&__left,
+	&__right
+		background: rgba($f5,.7)
+		border: 1px solid rgba($w, .2)
+		+br(8px)
+		padding: 20px
+		h4
+			font-size: 24px
+			+med
+			line-height: 110%
+		p
+			+lig
+			font-size: 18px
+			margin-top: 10px
+
+	&__middle
+		height: 45rem
+		overflow: visible
+		margin-bottom: -5em
+		// display: flex
+		// align-items: flex-start
+		// justify-content: center
+		+br(47px)
+
+		video
+			max-width: 100%
+			// width: 100%
+			width: 21rem
+			height: 44rem
+			object-fit: cover
+			display: block
+			vertical-align: middle
+			+br(47px)
+
+	.phone-mockup
+		position: absolute
+		height: 45.5rem
+		width: 100%
+		top: -10px
+		left: -8px
+		background-image: url(../img/phone-mockup.png)
+		background-size: cover
+		background-position: center
+		background-repeat: no-repeat
+		z-index: 2
+
+//=============================================
+// Card - Section
+//=============================================
+.card
+	padding: 100px 0
+
+	&__inner
+		display: grid
+		grid-template-columns: 1fr 1fr
+		align-items: center
+		grid-gap: 40px
+
+	&__list
+		margin: 50px 0
+		display: flex
+		flex-direction: column
+		grid-gap: 30px
+
+		h4
+			font-size: 20px
+			+med
+			display: flex
+			grid-gap: 10px
+			align-items: center
+
+		p
+			font-size: 18px
+			+lig
+			margin-top: 10px
+
+//=============================================
+// Table - Section
+//=============================================
+.table
+	padding: 100px 0
+
+	.comp-table
+		display: grid
+		grid-template-columns: 1fr 1fr 1fr
+		grid-gap: 40px
+		+br(8px)
+		// padding: 20px
+		margin-top: 160px
+		padding-right: 40px
+		background: $w
+		width: 100%
+		position: relative
+		margin-bottom: 110px
+
+	.comp-content
+		background: #fafafa
+		box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1)
+		position: absolute
+		right: 0
+		top: -60px
+		width: 400px
+		+br(8px)
+		overflow: hidden
+
+	.comp-octane
+		right: calc(400px + 80px)
+	.comp-other
+		right: 40px
+
+	.header-item:first-child
+		background: transparent
+		border: none
+
+	.header-item
+		// text-align: center
+		padding: 10px 20px
+		+flex
+		img
+			margin: 0 auto
+			height: 40px
+
+	.header-item,
+	.row-value
+		background: #fafafa
+		padding: 20px
+		border-top: 1px solid #EAE8E8
+		height: 60px
+
+	.row-label
+		padding: 20px 32px
+		font-size: 18px
+		+med
+		height: 60px
+
+	.row-value
+		font-size: 18px
+		+lig
+		display: flex
+		align-items: center
+		grid-gap: 10px
+
+	&__actions
+		display: flex
+		align-items: center
+		justify-content: center
+		padding-bottom: 100px

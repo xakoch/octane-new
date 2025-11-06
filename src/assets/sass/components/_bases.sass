@@ -7,6 +7,7 @@ body
 	overflow-x: hidden !important
 	min-width: 320px
 	background: $f5
+	color: $b1
 	&.overflow
 		overflow: hidden
 
@@ -43,13 +44,13 @@ body
 	transition: background .3s linear
 	z-index: 8888
 	&:hover
-		background: $b9
+		background: $b
 
 // section background colors
-.bg-dark
-	background: $b9
-.bg-white
-	background: $w
+// .bg-dark
+// 	background: $b9
+// .bg-white
+// 	background: $w
 
 // section header
 .section-header
@@ -72,13 +73,6 @@ body
 		height: 440px
 		background: linear-gradient(180deg, rgba(234, 233, 239, 0.65) 0%, rgba(234, 233, 239, 0.00) 100%)
 
-// padding 120px 
-.padding-120
-	padding: 120px 0
-
-.padding-90-120
-	padding: 90px 0 120px
-
 // color
 .text-white
 	color: $w
@@ -86,22 +80,19 @@ body
 // center
 .text-center
 	text-align: center
-.xs
-	display: none
-	+r(768)
-		display: block
 
-.xs-hide
-	+r(768)
-		display: none
 
-.sm
-	display: none !important
-	+r(991)
-		display: block !important
-		margin-top: 30px
-		text-align: center
+.padding
+	position: relative
+	width: 100%
+	display: block
+	height: 600px
+	margin-top: 200px
+	border-top: 20px dashed yellow
+	background: blue
 
-.sm-hide
-	+r(991)
-		display: none !important
+hr
+	height: 1px
+	width: 100%
+	background: #c9c9c9
+	margin-bottom: 100px
