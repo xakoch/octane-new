@@ -1,0 +1,44 @@
+.footer
+	padding-bottom: 40px
+	&__line
+		border-top: 1px solid $c9
+		padding-top: 45px
+	&__inner
+		display: flex
+		justify-content: space-between
+	&__info
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+	&__text
+		font-size: 14px
+		+lig
+		display: flex
+		flex-direction: column
+		grid-gap: 10px
+		a
+			text-decoration: underline !important
+			color: $b1
+			+trans
+			&:hover
+				text-decoration: none !important
+	&__links
+		display: flex
+		align-items: flex-start
+		grid-gap: 70px
+
+		h3
+			font-size: 20px
+			+med
+		ul
+			margin-top: 20px !important
+			display: flex
+			flex-direction: column
+			grid-gap: 20px
+			a
+				color: $b1
+				font-size: 16px
+				+lig
+				+trans
+				&:hover
+					color: $primary
