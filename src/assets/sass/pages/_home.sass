@@ -113,7 +113,6 @@
 			+lig
 			margin-top: 10px
 
-
 //=============================================
 // How it works - Section
 //=============================================
@@ -164,7 +163,6 @@
 		display: flex
 		align-items: center
 		grid-gap: 20px
-
 
 //=============================================
 // Mobile App - Section
@@ -347,4 +345,86 @@
 		display: flex
 		align-items: center
 		justify-content: center
-		padding-bottom: 100px
+
+//=============================================
+// Feedback - Section
+//=============================================
+.feedback
+	padding-bottom: 100px
+	.section__title
+		position: sticky
+		top: 10px
+		align-self: start
+		z-index: 1
+	&__inner
+		display: grid
+		grid-template-columns: 360px 1fr
+		grid-gap: 40px
+		align-items: start
+	&__list
+		display: flex
+		flex-direction: column
+		grid-gap: 30px
+	&__item
+		display: grid
+		grid-template-columns: 180px 2fr 200px
+		grid-gap: 20px
+		padding: 10px
+		+br(8px)
+		background: $w
+		position: relative
+		overflow: hidden
+		&::after
+			content: ''
+			display: block
+			position: absolute
+			top: 0
+			right: 0
+			width: 200px
+			height: 100%
+			background: linear-gradient(to right, rgba(#FFDD1E, 0) 0%, #FF520A 100%)
+	&__ava
+		img
+			width: 180px
+			height: 180px
+			overflow: hidden
+			+br(8px)
+	&__info
+		padding: 10px 0
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		p
+			font-size: 18px
+			+lig
+			line-height: 120%
+		h4
+			+med
+			font-size: 18px
+		span
+			font-size: 14px
+			+lig
+			display: block
+			margin-top: 4px
+	&__position
+		border-left: 1px solid $c9
+		display: flex
+		flex-direction: column
+		justify-content: flex-end
+		align-items: flex-end
+		padding: 20px
+		z-index: 2
+		position: relative
+		h3
+			font-size: 24px
+			+med
+		span
+			color: $b
+			font-size: 18px
+			display: block
+			margin-top: 6px
+			text-align: right
+
+//=============================================
+// FAQ - Section
+//=============================================

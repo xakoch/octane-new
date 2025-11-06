@@ -758,5 +758,118 @@ hr {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.feedback {
     padding-bottom: 100px;
+}
+
+.feedback .section__title {
+    position: sticky;
+    top: 10px;
+    align-self: start;
+    z-index: 1;
+}
+
+.feedback__inner {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    grid-gap: 40px;
+    align-items: start;
+}
+
+.feedback__list {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 30px;
+}
+
+.feedback__item {
+    display: grid;
+    grid-template-columns: 180px 2fr 200px;
+    grid-gap: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.feedback__item::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 221, 30, 0) 0%, #FF520A 100%);
+}
+
+.feedback__ava img {
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.feedback__info {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.feedback__info p {
+    font-size: 18px;
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 120%;
+}
+
+.feedback__info h4 {
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+}
+
+.feedback__info span {
+    font-size: 14px;
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    display: block;
+    margin-top: 4px;
+}
+
+.feedback__position {
+    border-left: 1px solid #c9c9c9;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 20px;
+    z-index: 2;
+    position: relative;
+}
+
+.feedback__position h3 {
+    font-size: 24px;
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.feedback__position span {
+    color: #000000;
+    font-size: 18px;
+    display: block;
+    margin-top: 6px;
+    text-align: right;
 }

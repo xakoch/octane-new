@@ -31,7 +31,9 @@ function initLenis() {
             mouseMultiplier: 1,
             smoothTouch: true,
             touchMultiplier: 2,
-            infinite: false
+            infinite: false,
+            wrapper: window,
+            content: document.documentElement
         });
 
         // Экспортируем в глобальную область для доступа из других скриптов

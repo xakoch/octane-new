@@ -1,106 +1,513 @@
 ---
 layout: default
-title: Project name - Preview page
-pagename: index
+title: Home
+pagename: home
 ---
 
-    <style>
-        .devpage {
-            padding: 60px 0;
-        }
-
-        .devpages {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 15px;
-            margin-top: 80px;
-        }
-
-        @media only screen and (max-width: 1024px) {
-            .devpages {
-                grid-template-columns: repeat(2, 1fr);
-                grid-gap: 30px;
-            }
-        }
-        .devpage h2 {
-            margin-bottom: 20px !important;
-        }
-
-        .devpage a {
-            display: table;
-            text-decoration: underline !important;
-            margin-bottom: 15px;
-            position: relative;
-        }
-
-        .devpage a::after {
-            content: "";
-            display: block;
-            position: absolute;
-            top: 0;
-            right: -30px;
-        }
-
-        .devpage a.none {
-            color: #B2B0BB;
-            cursor: not-allowed;
-        }
-
-        .devpage a.none::after {
-            content: "🔒";
-        }
-
-        .devpage a.process {
-            color: #EE9A6B;
-        }
-
-        .devpage a.process::after {
-            content: "⚔️";
-        }
-
-        .devpage a.done {
-            color: #27C062;
-        }
-
-        .devpage a.done::after {
-            content: "✅";
-        }
-    </style>
-
-    <div class="container">
-        <div class="devpage">
-            <h1>Project name - Pages</h1>
-            <hr>
-            <div class="devpages">
-                <div class="dev__group">
-                    <h2>Basic pages</h2>
-                    <a class="done" href="home.html">Home</a>
-                    <a class="process" href="contact-us.html">Contact Us</a>
-                    <a class="none" href="accessibility-statement.html">Accessibility Statement</a>
-                    <a class="none" href="privacy.html">Privacy Policy</a>
-                    <a class="none" href="terms.html">Terms & Conditions</a>
-                    <a class="none" href="404.html">404</a>
+    <!-- hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero__inner">
+                <div class="hero__info">
+                    <h1>Your Fuel Card <br> Can Do More</h1>
+                    <p>Fuel, maintenance, credit, protection: one card that does it all. <br>Top fleets and truckers already switched. You next?</p>
+                    <div class="hero__actions">
+                        <a class="btn btn-primary" href="#">Get Octane Card</a>
+                        <a class="btn btn-primary" href="#">Download App</a>
+                    </div>
                 </div>
-                <div class="dev__group">
-                    <h2>About pages</h2>
-                    <a class="none" href="about.html">About</a>
-                    <a class="none" href="about-practice.html">About Practice</a>
-                    <a class="none" href="team.html">Team</a>
-                    <a class="none" href="team-single.html">Team - Single</a>
-                </div>
-                <div class="dev__group">
-                    <h2>Services pages</h2>
-                    <a class="none" href="services.html">Services</a>
-                    <a class="none" href="services-single.html">Services - Single</a>
-                </div>
-                <div class="dev__group">
-                    <h2>Other pages</h2>
-                    <a class="none" href="smile-gallery.html">Smile Gallery</a>
-                    <a class="none" href="testimonials.html">Testimonials</a>
-                    <a class="none" href="patient-info.html">Patient Information</a>
-                    <a class="none" href="blog.html">Blog</a>
-                    <a class="none" href="blog-single.html">Blog - Single</a>
+                <div class="hero__media">
+                    <img src="assets/img/hero.webp" alt="">
                 </div>
             </div>
-        </div>    
-    </div>
+        </div>
+    </section>
+    <!-- /hero -->
+
+    <!-- features -->
+    <section class="features">
+        <div class="container">
+            <div class="features__list">
+                <div class="features__item">
+                    <div class="features__img">
+                        <img src="assets/img/fea-1.webp" alt="">
+                    </div>
+                    <div class="features__info">
+                        <h4>Up to $2.03 OFF per Gallon</h4>
+                        <p>Save more every mile</p>
+                    </div>
+                </div>
+                <div class="features__item">
+                    <div class="features__img">
+                        <img src="assets/img/fea-2.webp" alt="">
+                    </div>
+                    <div class="features__info">
+                        <h4>Free App with AI + Digital Wallet</h4>
+                        <p>Track spending & find the cheapest stations</p>
+                    </div>
+                </div>
+                <div class="features__item">
+                    <div class="features__img">
+                        <img src="assets/img/fea-3.webp" alt="">
+                    </div>
+                    <div class="features__info">
+                        <h4>0% Fraud Risk</h4>
+                        <p>Instant alerts and real-time monitoring.</p>
+                    </div>
+                </div>
+                <div class="features__item">
+                    <div class="features__img">
+                        <img src="assets/img/fea-4.webp" alt="">
+                    </div>
+                    <div class="features__info">
+                        <h4>Flexible Pay Options</h4>
+                        <p>Choose billing cycles that fit your cash flow</p>
+                    </div>
+                </div>
+                <div class="features__item">
+                    <div class="features__img">
+                        <img src="assets/img/fea-5.webp" alt="">
+                    </div>
+                    <div class="features__info">
+                        <h4>Maintenance Discounts</h4>
+                        <p>Save on maintenance at nationwide partner shops</p>
+                    </div>
+                </div>
+                <div class="features__item">
+                    <div class="features__img">
+                        <img src="assets/img/fea-6.svg" alt="">
+                    </div>
+                    <div class="features__info">
+                        <h4>TVC Pro Driver Plan</h4>
+                        <p>Legal coverage, roadside help, and driver rewards</p>
+                    </div>
+                </div>
+            </div>
+            <div class="features__footer">
+                <p>Apply and get your card delivered in 3 days</p>
+                <a class="btn btn-primary" href="#">Get Octane Card</a>
+            </div>
+        </div>
+    </section>
+    <!-- /features -->
+
+    <!-- facts -->
+    <section class="facts">
+        <div class="container">
+            <div class="facts__top">
+                <img src="assets/img/1.webp" alt="">
+            </div>
+            <div class="facts__bottom">
+                <div class="facts__item">
+                    <h3>$2,317 / month</h3>
+                    <p>Average savings per truck with Octane Fuel.</p>
+                </div>
+                <div class="facts__item">
+                    <h3>24 / 7 Support</h3>
+                    <p>Real people, real help — anytime you need it.</p>
+                </div>
+                <div class="facts__item">
+                    <h3>$30,000 / year</h3>
+                    <p>Saved per truck on fuel, service, and maintenance.</p>
+                </div>
+                <div class="facts__item">
+                    <h3>14,000+</h3>
+                    <p>In-network truck station availability all over the US</p>
+                </div>
+                <div class="facts__item">
+                    <h3>10,791 Active Users</h3>
+                    <p>Drivers and fleets already fueling smarter with Octane.</p>
+                </div>
+                <div class="facts__item">
+                    <a class="btn btn-primary" href="#">Get Octane Card</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /facts -->
+
+    <!-- how -->
+    <section class="how">
+        <div class="container">
+            <div class="how__inner">
+                <div class="how__media">
+                    <img src="assets/img/cap.webp" alt="">
+                </div>
+                <div class="how__info">
+                    <div class="section__title">
+                        <h2>How it Works</h2>
+                    </div>
+                    <div class="how__list">
+                        <div class="how__item">
+                            <div class="how__number">
+                                <span>1</span>
+                            </div>
+                            <div class="how__info">
+                                <h4>Apply in Minutes</h4>
+                                <p>No contracts. Soft credit check only. Just an $8 setup.</p>
+                            </div>
+                        </div>
+                        <div class="how__item">
+                            <div class="how__number">
+                                <span>2</span>
+                            </div>
+                            <div class="how__info">
+                                <h4>Get Your Card + App</h4>
+                                <p>Receive card in 3 days and access to fuel savings, repairs, factoring, and driver protection.</p>
+                            </div>
+                        </div>
+                        <div class="how__item">
+                            <div class="how__number">
+                                <span>3</span>
+                            </div>
+                            <div class="how__info">
+                                <h4>Enjoy</h4>
+                                <p>Cut costs, reduce downtime, stabilize cash flow, and never worry</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="how__actions">
+                        <a class="btn btn-primary" href="#">Get Octane Card</a>
+                        <a class="btn btn-primary" href="#">Download App</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /how -->
+
+    <!-- app -->
+    <section class="app">
+        <div class="container">
+            <hr>
+            <div class="app__header">
+                <h2>The Octane App <br>Fuel. Track. Control.</h2>
+                <p>A smart wallet and AI-powered co-pilot for drivers and fleets</p>
+                <div class="app__actions">
+                    <a class="btn btn-primary" href="#">Get Octane Card</a>
+                    <a class="btn btn-primary" href="#">Download App</a>
+                </div>
+            </div>
+            <div class="app__inner">
+                <div class="app__left app__item">
+                    <div class="app__info">
+                        <h4>For Fleets</h4>
+                        <p>Gain complete visibility, set limits, and manage expenses across every driver and vehicle — all from one dashboard.</p>
+                    </div>
+                </div>
+                <div class="app__middle app__item">
+                    <video playsinline="" preload="metadata" muted="" class="" poster="assets/img/video-poster.webp" autoplay loop>
+                        <source src="assets/video/1.webm" type="video/webm; codecs=av01.0.12M.08.0.110.01.01.01.0">
+                        <!-- <source src="1" type="video/mp4"> -->
+                    </video>
+                    <div class="phone-mockup">
+                        <!-- <button class="" type="button">
+                            <span class="">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M32.0664 22.4782C33.4467 21.682 33.4467 19.6899 32.0664 18.8937L14.1374 8.55231C12.7581 7.75672 11.0347 8.7522 11.0347 10.3445V31.0274C11.0347 32.6197 12.7581 33.6152 14.1374 32.8196L32.0664 22.4782Z" fill="currentColor"></path></svg>
+                            </span>
+                        </button> -->
+                    </div>
+                </div>
+                <div class="app__right app__item">
+                    <h4>For Drivers</h4>
+                    <p>Find the best fuel prices, pay instantly from the app, and track every dollar spent.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /app -->
+
+    <!-- card -->
+    <section class="card">
+        <div class="container">
+            <div class="card__inner">
+                <div class="card__info">
+                    <div class="section__title">
+                        <h2>A Card You Can Trust</h2>
+                    </div>
+                    <div class="card__list">
+                        <div class="card__item">
+                            <h4>Fraud Protection</h4>
+                            <p>Each purchase is verified by location, time, and driver ID to prevent duplicate charges, fuel theft, and card misuse.</p>
+                        </div>
+                        <div class="card__item">
+                            <h4><img src="assets/img/plaid.svg" alt=""> Certified</h4>
+                            <p>All connections are encrypted end-to-end, ensuring secure authentication, instant balance verification, and zero data exposure.</p>
+                        </div>
+                        <div class="card__item">
+                            <h4>24/7 Agent Support</h4>
+                            <p>Trained agents provide immediate assistance with transactions, billing, or account management - with zero service fees.</p>
+                        </div>
+                    </div>
+                    <div class="card__actions">
+                        <a class="btn btn-primary" href="#">Get Octane Card</a>
+                    </div>
+                </div>
+                <div class="card__media">
+                    <img src="assets/img/card-trust.webp" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /card -->
+
+    <!-- table -->
+    <section class="table">
+        <div class="container">
+            <hr>
+            <div class="section__title text-center">
+                <h2>Here's Why 10,000+ drivers already trust Octane</h2>
+            </div>
+
+            <div class="comp-table">
+                <div class="comp-title">
+                    <div class="comp-body">
+                        <div class="comp-row">
+                            <div class="row-label">Flexible Payment Terms</div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-label">Prepay Option</div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-label">Setup Fees</div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-label">TVC Pro Driver Protection</div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-label">Admin Account Control</div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-label">Membership Fees</div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-label">Transaction Fees</div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-label">Factoring Services</div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-label">24/7 Customer Support</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comp-content comp-octane">
+                    <div class="comp-header">
+                        <div class="header-item">
+                            <img src="assets/img/octane.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="comp-body">
+                        <div class="comp-row">
+                            <div class="row-value octane">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#D9D9D9"/><circle cx="10" cy="10" r="10" fill="#FF520A"/><path d="M5.92578 9.73826L8.92706 12.7395L14.6295 7.03711" stroke="white" stroke-width="1.80077"/></svg>
+                                <span class="text">Available</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value octane">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#D9D9D9"/><circle cx="10" cy="10" r="10" fill="#FF520A"/><path d="M5.92578 9.73826L8.92706 12.7395L14.6295 7.03711" stroke="white" stroke-width="1.80077"/></svg>
+                                <span class="text">Available</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value octane">
+                                <span class="text">$8 one-time</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value octane">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#D9D9D9"/><circle cx="10" cy="10" r="10" fill="#FF520A"/><path d="M5.92578 9.73826L8.92706 12.7395L14.6295 7.03711" stroke="white" stroke-width="1.80077"/></svg>
+                                <span class="text">Included</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value octane">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#D9D9D9"/><circle cx="10" cy="10" r="10" fill="#FF520A"/><path d="M5.92578 9.73826L8.92706 12.7395L14.6295 7.03711" stroke="white" stroke-width="1.80077"/></svg>
+                                <span class="text">Full fleet-level control</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value octane">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#D9D9D9"/><circle cx="10" cy="10" r="10" fill="#FF520A"/><path d="M5.92578 9.73826L8.92706 12.7395L14.6295 7.03711" stroke="white" stroke-width="1.80077"/></svg>
+                                <span class="text">Free</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value octane">
+                                <span class="text">$0.50 flat</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value octane">
+                                <span class="text">1-3% fees</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value octane">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#D9D9D9"/><circle cx="10" cy="10" r="10" fill="#FF520A"/><path d="M5.92578 9.73826L8.92706 12.7395L14.6295 7.03711" stroke="white" stroke-width="1.80077"/></svg>
+                                <span class="text">Always free, human support</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value octane">
+                                <span class="text"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comp-content comp-other">
+                    <div class="comp-header">
+                        <div class="header-item">
+                            <h3>Other Fuel Cards</h3>
+                        </div>
+                    </div>
+                    <div class="comp-body">
+                        <div class="comp-row">
+                            <div class="row-value others">
+                                <span class="icon icon-close"></span>
+                                <span class="text">Very strict repayment terms</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value others">
+                                <span class="icon icon-close"></span>
+                                <span class="text">Limited, with strict conditions</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value others">
+                                <span class="text">Up to $150 setup fees</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value others">
+                                <span class="icon icon-close"></span>
+                                <span class="text">Not offered by most providers</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value others">
+                                <span class="icon icon-close"></span>
+                                <span class="text">Separate user accounts, no central management</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value others">
+                                <span class="text">Up to $8 per card monthly</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value others">
+                                <span class="text">Up to $1.75 per transaction</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value others">
+                                <span class="text">4%+ average</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value others">
+                                <span class="icon icon-close"></span>
+                                <span class="text">Often paid ($1.50 per task)</span>
+                            </div>
+                        </div>
+                        <div class="comp-row">
+                            <div class="row-value others">
+                                <span class="text"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table__actions">
+                <a class="btn btn-primary" href="#">Get Octane Card</a>
+            </div>
+        </div>
+    </section>
+    <!-- /table -->
+
+    <section class="feedback">
+        <div class="container">
+            <hr>
+            <div class="feedback__inner">
+                <div class="section__title">
+                    <h2>Feedback <br> From the Octane <br> Community</h2>
+                </div>
+                <div class="feedback__list">
+                    <div class="feedback__item">
+                        <div class="feedback__ava">
+                            <img src="assets/img/ava-1.webp" alt="">
+                        </div>
+                        <div class="feedback__info">
+                            <div class="feedback__top">
+                                <p>“Octane made it simple to manage fuel, payments, and maintenance in one place. It’s fast, transparent, and helps us stay on the road without the usual stress.”</p>
+                            </div>
+                            <div class="feedback__bottom">
+                                <h4>Jamal R.</h4>
+                                <span>Fleet Owner, JR Logistics</span>
+                            </div>
+                        </div>
+                        <div class="feedback__position">
+                            <h3>Smarter</h3>
+                            <span>fuel management</span>
+                        </div>
+                    </div>
+                    <div class="feedback__item">
+                        <div class="feedback__ava">
+                            <img src="assets/img/ava-2.webp" alt="">
+                        </div>
+                        <div class="feedback__info">
+                            <div class="feedback__top">
+                                <p>“The app keeps everything clear — from where to fuel to how much we spend. Finally, a system that actually works the way drivers do.”</p>
+                            </div>
+                            <div class="feedback__bottom">
+                                <h4>Ana M.</h4>
+                                <span>Owner-Operator, AM Freight</span>
+                            </div>
+                        </div>
+                        <div class="feedback__position">
+                            <h3>Real-time</h3>
+                            <span>spending control</span>
+                        </div>
+                    </div>
+                    <div class="feedback__item">
+                        <div class="feedback__ava">
+                            <img src="assets/img/ava-3.webp" alt="">
+                        </div>
+                        <div class="feedback__info">
+                            <div class="feedback__top">
+                                <p>“We switched to Octane for the flexibility and stayed for the support. The savings, service, and ease of use really make a difference.”</p>
+                            </div>
+                            <div class="feedback__bottom">
+                                <h4>Victor D.</h4>
+                                <span>Operations Manager, NextHaul Transport</span>
+                            </div>
+                        </div>
+                        <div class="feedback__position">
+                            <h3>All-in-one</h3>
+                            <span>fuel & maintenance solution</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <hr>
+            <div class="section__title">
+                <h2>FAQs</h2>
+            </div>
+            <div class="faq__list">
+                <div class="faq__item">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="padding"></div>
