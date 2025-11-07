@@ -1275,7 +1275,8 @@ button.swiper-pagination-bullet {
     position: relative;
     border: 1px solid rgba(26, 26, 26, 0.2);
     padding: 30px 20px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 80px 1fr;
     align-items: center;
     grid-gap: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
