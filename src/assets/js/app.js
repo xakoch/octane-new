@@ -573,6 +573,196 @@ function initSpecials() {
 }
 
 /**
+ * Инициализация попапа для скачивания приложения
+ */
+function initAppPopup() {
+    try {
+        const popup = document.getElementById('appPopup');
+        if (!popup) return;
+
+        const overlay = popup.querySelector('.app-popup__overlay');
+        const closeBtn = popup.querySelector('.app-popup__close');
+        const downloadBtns = document.querySelectorAll('a[href="#"]:not(.app-popup__btn)');
+
+        // Функция открытия попапа
+        function openPopup() {
+            // Используем requestAnimationFrame для оптимизации
+            requestAnimationFrame(() => {
+                popup.classList.add('active');
+                document.body.style.overflow = 'hidden';
+
+                // Останавливаем Lenis при открытии попапа
+                if (window.lenis) {
+                    window.lenis.stop();
+                }
+            });
+        }
+
+        // Функция закрытия попапа
+        function closePopup() {
+            popup.classList.remove('active');
+
+            // Задержка для завершения анимации перед разблокировкой скролла
+            setTimeout(() => {
+                document.body.style.overflow = '';
+
+                // Возобновляем Lenis при закрытии попапа
+                if (window.lenis) {
+                    window.lenis.start();
+                }
+            }, 300);
+        }
+
+        // Обработчик клика на кнопки "Download App"
+        downloadBtns.forEach(btn => {
+            const btnText = btn.textContent.toLowerCase().trim();
+            if (btnText.includes('download app')) {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openPopup();
+                });
+            }
+        });
+
+        // Закрытие по клику на overlay
+        if (overlay) {
+            overlay.addEventListener('click', closePopup);
+        }
+
+        // Закрытие по клику на кнопку close
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closePopup);
+        }
+
+        // Закрытие по клавише ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && popup.classList.contains('active')) {
+                closePopup();
+            }
+        });
+
+    } catch (error) {
+        console.error("Error in " + arguments.callee.name + ":", error);
+    }
+}
+
+/**
+ * Инициализация попапа с формой
+ */
+function initFormPopup() {
+    try {
+        const popup = document.getElementById('formPopup');
+        if (!popup) return;
+
+        const overlay = popup.querySelector('.form-popup__overlay');
+        const closeBtn = popup.querySelector('.form-popup__close');
+        const form = document.getElementById('savingForm');
+        const savingBtns = document.querySelectorAll('a[href="#"]');
+
+        // Функция открытия попапа
+        function openPopup() {
+            requestAnimationFrame(() => {
+                popup.classList.add('active');
+                document.body.style.overflow = 'hidden';
+
+                // Останавливаем Lenis при открытии попапа
+                if (window.lenis) {
+                    window.lenis.stop();
+                }
+            });
+        }
+
+        // Функция закрытия попапа
+        function closePopup() {
+            popup.classList.remove('active');
+
+            setTimeout(() => {
+                document.body.style.overflow = '';
+
+                // Возобновляем Lenis при закрытии попапа
+                if (window.lenis) {
+                    window.lenis.start();
+                }
+            }, 300);
+        }
+
+        // Обработчик клика на кнопки "Start Saving Now"
+        savingBtns.forEach(btn => {
+            const btnText = btn.textContent.toLowerCase().trim();
+            if (btnText.includes('start saving now')) {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openPopup();
+                });
+            }
+        });
+
+        // Закрытие по клику на overlay
+        if (overlay) {
+            overlay.addEventListener('click', closePopup);
+        }
+
+        // Закрытие по клику на кнопку close
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closePopup);
+        }
+
+        // Закрытие по клавише ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && popup.classList.contains('active')) {
+                closePopup();
+            }
+        });
+
+        // Обработка отправки формы
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const submitBtn = form.querySelector('.form-popup__submit');
+                const originalText = submitBtn.textContent;
+
+                // Блокируем кнопку на время отправки
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+
+                // Собираем данные формы
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+
+                try {
+                    // Здесь должна быть отправка данных на сервер
+                    // Пример: await fetch('/api/submit', { method: 'POST', body: JSON.stringify(data) })
+
+                    // Имитация задержки отправки
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+
+                    console.log('Form submitted:', data);
+
+                    // Показываем сообщение об успехе
+                    alert('Thank you! We will contact you shortly.');
+
+                    // Закрываем попап и сбрасываем форму
+                    form.reset();
+                    closePopup();
+
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    alert('Something went wrong. Please try again.');
+                } finally {
+                    // Разблокируем кнопку
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
+            });
+        }
+
+    } catch (error) {
+        console.error("Error in " + arguments.callee.name + ":", error);
+    }
+}
+
+/**
  * Запускает все скрипты на новой странице
  */
 function initScript() {
@@ -586,6 +776,8 @@ function initScript() {
         initFactsCounter();
         initHowAnimation();
         initTableAnimation();
+        initAppPopup();
+        initFormPopup();
     } catch (error) {
         console.error("Error in " + arguments.callee.name + ":", error);
     }
