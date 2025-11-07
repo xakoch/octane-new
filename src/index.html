@@ -199,10 +199,10 @@ pagename: home
                     </div>
                 </div>
                 <div class="app__middle app__item">
-                    <video playsinline="" preload="metadata" muted="" class="" poster="assets/img/video-poster.webp" autoplay loop>
+                    <!-- <video playsinline="" preload="metadata" muted="" class="" poster="assets/img/video-poster.webp" autoplay loop>
                         <source src="assets/video/1.webm" type="video/webm; codecs=av01.0.12M.08.0.110.01.01.01.0">
-                        <!-- <source src="1" type="video/mp4"> -->
-                    </video>
+                        <source src="1" type="video/mp4">
+                    </video> -->
                     <div class="phone-mockup">
                         <!-- <button class="" type="button">
                             <span class="">
@@ -942,3 +942,50 @@ pagename: home
         </div>
     </div>
     <!-- /form popup -->
+
+    <!-- get card popup -->
+    <div class="form-popup" id="cardPopup">
+        <div class="form-popup__overlay"></div>
+        <div class="form-popup__content">
+            <button class="form-popup__close" type="button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <h3>Get Your Octane Card</h3>
+            <p>Apply in minutes and start saving on fuel</p>
+            <form class="form-popup__form" id="cardForm">
+                <div class="form-popup__group">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                </div>
+                <div class="form-popup__group">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-popup__group">
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                </div>
+                <div class="form-popup__group">
+                    <input type="text" name="company" placeholder="Company Name (Optional)">
+                </div>
+                <div class="form-popup__group">
+                    <select name="fleet_size" required>
+                        <option value="" disabled selected>Fleet Size</option>
+                        <option value="1-5">1-5 trucks</option>
+                        <option value="6-10">6-10 trucks</option>
+                        <option value="11-25">11-25 trucks</option>
+                        <option value="26-50">26-50 trucks</option>
+                        <option value="50+">50+ trucks</option>
+                    </select>
+                </div>
+                <div class="form-popup__group">
+                    <select name="card_type" required>
+                        <option value="" disabled selected>Card Type</option>
+                        <option value="individual">Individual Driver</option>
+                        <option value="fleet">Fleet Manager</option>
+                    </select>
+                </div>
+                <button type="submit" class="form-popup__submit">Apply Now</button>
+            </form>
+        </div>
+    </div>
+    <!-- /get card popup -->

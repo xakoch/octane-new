@@ -763,6 +763,122 @@ function initFormPopup() {
 }
 
 /**
+ * Инициализация попапа Get Card
+ */
+function initCardPopup() {
+    try {
+        const popup = document.getElementById('cardPopup');
+        if (!popup) return;
+
+        const overlay = popup.querySelector('.form-popup__overlay');
+        const closeBtn = popup.querySelector('.form-popup__close');
+        const form = document.getElementById('cardForm');
+        const cardBtns = document.querySelectorAll('a[href="#"]');
+
+        // Функция открытия попапа
+        function openPopup() {
+            requestAnimationFrame(() => {
+                popup.classList.add('active');
+                document.body.style.overflow = 'hidden';
+
+                // Останавливаем Lenis при открытии попапа
+                if (window.lenis) {
+                    window.lenis.stop();
+                }
+            });
+        }
+
+        // Функция закрытия попапа
+        function closePopup() {
+            popup.classList.remove('active');
+
+            setTimeout(() => {
+                document.body.style.overflow = '';
+
+                // Возобновляем Lenis при закрытии попапа
+                if (window.lenis) {
+                    window.lenis.start();
+                }
+            }, 300);
+        }
+
+        // Обработчик клика на кнопки "Get Card"
+        cardBtns.forEach(btn => {
+            const btnText = btn.textContent.toLowerCase().trim();
+            if (btnText.includes('get card') || btnText.includes('get your card')) {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openPopup();
+                });
+            }
+        });
+
+        // Закрытие по клику на overlay
+        if (overlay) {
+            overlay.addEventListener('click', closePopup);
+        }
+
+        // Закрытие по клику на кнопку close
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closePopup);
+        }
+
+        // Закрытие по клавише ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && popup.classList.contains('active')) {
+                closePopup();
+            }
+        });
+
+        // Обработка отправки формы
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const submitBtn = form.querySelector('.form-popup__submit');
+                const originalText = submitBtn.textContent;
+
+                // Блокируем кнопку на время отправки
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+
+                // Собираем данные формы
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+
+                try {
+                    // Здесь должна быть отправка данных на сервер
+                    // Пример: await fetch('/api/card-application', { method: 'POST', body: JSON.stringify(data) })
+
+                    // Имитация задержки отправки
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+
+                    console.log('Card application submitted:', data);
+
+                    // Показываем сообщение об успехе
+                    alert('Thank you! Your card application has been submitted. We will contact you shortly.');
+
+                    // Закрываем попап и сбрасываем форму
+                    form.reset();
+                    closePopup();
+
+                } catch (error) {
+                    console.error('Form submission error:', error);
+                    alert('Something went wrong. Please try again.');
+                } finally {
+                    // Разблокируем кнопку
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalText;
+                }
+            });
+        }
+
+    } catch (error) {
+        console.error("Error in " + arguments.callee.name + ":", error);
+    }
+}
+
+/**
  * Запускает все скрипты на новой странице
  */
 function initScript() {
@@ -778,6 +894,7 @@ function initScript() {
         initTableAnimation();
         initAppPopup();
         initFormPopup();
+        initCardPopup();
     } catch (error) {
         console.error("Error in " + arguments.callee.name + ":", error);
     }
