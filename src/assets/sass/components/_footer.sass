@@ -6,16 +6,28 @@
 	&__inner
 		display: flex
 		justify-content: space-between
+		grid-gap: 40px
+		+r(991)
+			flex-direction: column
 	&__info
 		display: flex
 		flex-direction: column
 		justify-content: space-between
+		+r(991)
+			grid-gap: 40px
 	&__text
 		font-size: 14px
 		+lig
 		display: flex
 		flex-direction: column
 		grid-gap: 10px
+		&--desktop
+			+r(991)
+				display: none
+		&--mobile
+			display: none
+			+r(991)
+				display: flex
 		a
 			text-decoration: underline !important
 			color: $b1

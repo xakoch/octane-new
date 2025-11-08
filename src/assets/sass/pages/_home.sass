@@ -4,32 +4,74 @@
 .hero
 	height: 600px
 	background: $w
+	+r(1366)
+		height: 500px
+	+r(1024)
+		height: auto
+		padding: 0 0 60px
 	
 	h1
 		font-size: 56px
 		line-height: 120%
 		+med
+		+r(1366)
+			font-size: 48px
+		+r(1024)
+			font-size: 32px
 
 	p
 		margin: 20px 0 40px
 		+lig
 		font-size: 18px
 		line-height: 130%
+		+r(1366)
+			font-size: 16px
+		+r(1024)
+			margin: 10px 0 30px
+
+	br
+		+r(1024)
+			display: none
 
 	&__inner
 		display: grid
 		align-items: center
 		grid-template-columns: 1fr 1fr
 		position: relative
+		grid-gap: 20px
+		+r(1024)
+			grid-template-columns: 1fr
+			grid-gap: 30px
+
+	&__info
+		order: 1
 
 	&__actions
 		display: flex
 		align-items: center
 		grid-gap: 20px
+		+r(1024)
+			flex-direction: column
+		a
+			+r(1024)
+				width: 100%
+				text-align: center
 
 	&__media
 		height: 600px
 		position: relative
+		width: 100%
+		+r(1366)
+			height: 500px
+		+r(1024)
+			order: 0
+			height: 350px
+			+br(16px)
+			overflow: hidden
+		+r(767)
+			height: 300px
+		+r(560)
+			height: 280px
 
 		img,
 		video
@@ -37,6 +79,7 @@
 			bottom: 0
 			right: 0
 			height: 100%
+			width: 100%
 			object-fit: contain
 			object-position: bottom
 
@@ -45,11 +88,18 @@
 //=============================================
 .features
 	padding: 100px 0
+	+r(991)
+		padding: 60px 0
 
 	&__list
 		display: grid
 		grid-template-columns: repeat(3, 1fr)
 		grid-gap: 30px
+		+r(1366)
+			grid-template-columns: repeat(2, 1fr)
+			grid-gap: 20px
+		+r(991)
+			grid-template-columns: repeat(1, 1fr)
 
 	&__item
 		+br(8px)
@@ -62,6 +112,9 @@
 		grid-gap: 20px
 		transition: transform 0.3s ease, box-shadow 0.3s ease
 		cursor: pointer
+		+r(991)
+			grid-gap: 16px
+			padding: 20px
 
 		&:hover
 			transform: scale(1.03)
@@ -75,6 +128,9 @@
 			height: 80px
 			object-fit: contain
 			transition: transform 0.3s ease
+			+r(991)
+				width: 70px
+				height: 70px
 
 	&__info
 		h4
@@ -84,16 +140,23 @@
 			font-size: 18px
 			+lig
 			margin-top: 10px
+			+r(991)
+				font-size: 16px
 
 	&__footer
 		margin-top: 50px
 		display: flex
 		align-items: center
 		flex-direction: column
+		+r(991)
+			margin-top: 40px
 		p
 			font-size: 20px
 			+med
 			margin-bottom: 20px
+			+r(991)
+				text-align: center
+				max-width: 90%
 
 @keyframes iconBounce
 	0%, 100%
@@ -110,55 +173,72 @@
 //=============================================
 .facts
 	padding-bottom: 100px
-
+	+r(1024)
+		padding-bottom: 60px
+	br
+		+r(1024)
+			display: none
 	&__top
 		img
 			width: 100%
 			height: auto
 			transition: opacity 0.6s ease-in-out
 			display: block
-
+			+r(767)
+				object-fit: contain
 	&__bottom
 		display: grid
 		grid-template-columns: repeat(3, 1fr)
 		grid-gap: 60px
 		margin-top: 60px
+		+r(1024)
+			grid-template-columns: repeat(2, 1fr)
+			grid-gap: 40px
+		+r(767)
+			grid-template-columns: 1fr
+			grid-gap: 20px
 	
 	&__item
 		border-top: 1px solid $b1
 		padding-top: 20px
 		opacity: 0
 		transform: translateY(30px)
-
+		+r(1024)
+			padding-top: 10px
 		&:last-child
 			border-top-color: transparent
 			display: flex
 			justify-content: flex-end
 			align-items: flex-end
-
 		h3
 			font-size: 40px
 			+med
 			font-variant-numeric: tabular-nums
-
+			+r(1024)
+				font-size: 32px
 			.counter
 				display: inline
-
 		p
 			font-size: 18px
 			+lig
 			margin-top: 10px
+			+r(1024)
+				font-size: 16px
 
 //=============================================
 // How it works - Section
 //=============================================
 .how
 	padding: 100px 0
+	+r(1024)
+		padding: 60px 0
 
 	&__inner
 		display: grid
 		grid-template-columns: 1fr 1fr
 		grid-gap: 100px
+		+r(1024)
+			grid-template-columns: 1fr
 
 	&__media
 		display: flex
@@ -203,13 +283,21 @@
 		grid-gap: 20px
 		opacity: 0
 		transform: translateY(30px)
+		+r(1024)
+			flex-direction: column
 
 //=============================================
 // Mobile App - Section
 //=============================================
 .app
-	background: linear-gradient(to bottom, #F5F5F5 35%, #FF840A 80%, #FF520A 100%)
 	margin-bottom: 100px
+	+r(1024)
+		margin-bottom: 260px
+
+	&__wrapper
+		background: linear-gradient(to bottom, #F5F5F5 35%, #FF840A 80%, #FF520A 100%)
+		+r(1024)
+			background: linear-gradient(to bottom, #F5F5F5 0%, #FF840A 80%, #FF520A 100%)
 
 	&__header
 		text-align: center
@@ -217,16 +305,31 @@
 			font-size: 48px
 			+med
 			line-height: 120%
+			+r(1024)
+				font-size: 32px
 		p
 			font-size: 18px
 			+lig
 			margin: 30px 0
+			+r(1024)
+				font-size: 16px
+				max-width: 280px
+				margin: 20px auto 40px
 
 	&__actions
 		display: flex
 		align-items: center
 		grid-gap: 20px
 		justify-content: center
+		&--desktop
+			+r(1024)
+				display: none
+		&--mobile
+			display: none
+			flex-direction: column
+			+r(1024)
+				display: flex
+				margin-top: 100px
 
 	&__inner
 		display: grid
@@ -234,10 +337,19 @@
 		align-items: center
 		grid-gap: 100px
 		margin-top: 60px
+		+r(1024)
+			grid-template-columns: 1fr
+			grid-gap: 0
 
 	&__item
-		// border: 1px solid yellow
 		position: relative
+
+	&__left
+		+r(1024)
+			margin-bottom: 20px
+	&__right
+		+r(1024)
+			margin-bottom: 60px
 
 	&__left,
 	&__right
@@ -253,6 +365,8 @@
 			+lig
 			font-size: 18px
 			margin-top: 10px
+			+r(1024)
+				font-size: 16px
 
 	&__middle
 		height: 45rem
@@ -262,6 +376,9 @@
 		// align-items: flex-start
 		// justify-content: center
 		+br(47px)
+		+r(1024)
+			order: 3
+			height: 560px
 
 		video
 			max-width: 100%
@@ -279,23 +396,40 @@
 		width: 100%
 		top: -10px
 		left: -8px
-		background-image: url(../img/phone-full.webp)
+		background-image: url(../img/octane-app.webp)
 		background-size: cover
 		background-position: center
 		background-repeat: no-repeat
 		z-index: 2
+		+r(1024)
+			height: 560px
+			background-size: contain
 
 //=============================================
 // Card - Section
 //=============================================
 .card
 	padding: 100px 0
+	+r(1024)
+		padding: 60px 0
 
 	&__inner
 		display: grid
 		grid-template-columns: 1fr 1fr
 		align-items: center
 		grid-gap: 40px
+		+r(1024)
+			grid-template-columns: 1fr
+			grid-gap: 30px
+
+	&__info
+		+r(1024)
+			order: 1
+
+	&__media
+		+r(1024)
+			display: flex
+			order: 0
 
 	&__list
 		margin: 50px 0
@@ -314,6 +448,8 @@
 			font-size: 18px
 			+lig
 			margin-top: 10px
+			+r(1024)
+				font-size: 16px
 
 //=============================================
 // Table - Section
@@ -403,20 +539,29 @@
 //=============================================
 .feedback
 	padding-bottom: 100px
+	+r(1024)
+		padding-bottom: 60px
 	.section__title
 		position: sticky
 		top: 10px
 		align-self: start
 		z-index: 1
+		+r(1200)
+			position: static
+			top: 0
 	&__inner
 		display: grid
 		grid-template-columns: 360px 1fr
 		grid-gap: 40px
 		align-items: start
+		+r(1200)
+			grid-template-columns: 1fr
 	&__list
 		display: flex
 		flex-direction: column
 		grid-gap: 30px
+		+r(1024)
+			grid-gap: 20px
 	&__item
 		display: grid
 		grid-template-columns: 180px 2fr 200px
@@ -426,6 +571,13 @@
 		background: $w
 		position: relative
 		overflow: hidden
+		height: auto
+		+r(1200)
+			grid-gap: 40px
+		+r(1024)
+			grid-template-columns: 1fr
+			grid-gap: 20px
+			padding: 20px
 		&::after
 			content: ''
 			display: block
@@ -434,7 +586,13 @@
 			right: 0
 			width: 200px
 			height: 100%
-			background: linear-gradient(to right, rgba(#FFDD1E, 0) 0%, #FF520A 100%)
+			background: linear-gradient(to right, rgba(255, 209, 30, 0) 0%, rgba(255, 82, 10, 0.5) 100%)
+			+r(1024)
+				width: 100%
+				background: linear-gradient(to bottom, rgba(255, 209, 30, 0) 0%, rgba(255, 82, 10, 0.5) 100%)
+				height: 120px
+				bottom: 0
+				top: auto
 	&__ava
 		img
 			width: 180px
@@ -446,10 +604,14 @@
 		display: flex
 		flex-direction: column
 		justify-content: space-between
+		+r(1024)
+			flex-direction: column-reverse
+			grid-gap: 20px
 		p
 			font-size: 18px
 			+lig
 			line-height: 120%
+	&__bottom
 		h4
 			+med
 			font-size: 18px
@@ -467,6 +629,10 @@
 		padding: 20px
 		z-index: 2
 		position: relative
+		+r(1024)
+			border-left: none
+			border-top: 1px solid $c9
+			padding-bottom: 10px
 		h3
 			font-size: 24px
 			+med
@@ -482,6 +648,8 @@
 //=============================================
 .offers
 	padding: 100px 0
+	+r(1024)
+		padding: 60px 0
 
 	&__arrows
 		display: flex
@@ -543,6 +711,8 @@
 
 	&__text
 		padding: 30px
+		+r(1024)
+			padding: 20px
 		h3
 			font-size: 24px
 			+med
@@ -556,11 +726,22 @@
 		li
 			+lig
 			font-size: 18px
+			+r(1024)
+				font-size: 16px
 	&__actions
 		display: flex
 		align-items: center
 		grid-gap: 25px
 		padding: 0 30px
+		+r(1024)
+			grid-gap: 15px
+			padding: 0 20px
+			flex-direction: column
+		.btn-primary,
+		.link
+			max-width: fit-content
+			+r(1024)
+				font-size: 14px
 	&__media
 		margin-top: 30px
 		img
@@ -571,12 +752,17 @@
 //=============================================
 .specials
 	padding-bottom: 100px
+	+r(1024)
+		padding-bottom: 60px
 	&__list
 		display: grid
 		grid-template-columns: repeat(3, 1fr)
 		grid-gap: 30px
 		margin-top: 50px
 		align-items: flex-start
+		+r(1024)
+			grid-template-columns: 1fr
+			margin-top: 40px
 	&__item
 		+br(8px)
 		background: $w
@@ -609,10 +795,16 @@
 
 	&__title
 		height: 90px
+		+r(1024)
+			height: auto
 		h3
 			font-size: 24px
 			+med
 			margin: 30px 0 0 !important
+			+r(1200)
+				font-size: 20px
+			+r(1024)
+				font-size: 24px
 
 	&__text
 		p
@@ -646,9 +838,26 @@
 		align-items: center
 		grid-template-columns: 560px 1fr 520px
 		margin-top: 50px
+		+r(1200)
+			grid-template-columns: 1fr 1fr
+			grid-gap: 40px
+			align-items: flex-start
+		+r(1024)
+			grid-template-columns: 1fr
+			grid-gap: 30px
 		h3
 			font-size: 32px
 			+med
+			+r(1200)
+				font-size: 28px
+			+r(1024)
+				font-size: 24px
+			br
+				+r(1200)
+					display: none
+		&--span
+			+r(1200)
+				display: none
 		.form
 			width: 100%
 			&__group
@@ -656,6 +865,9 @@
 				align-items: center
 				justify-content: flex-end
 				grid-gap: 10px
+				width: 100%
+				+r(767)
+					flex-direction: column
 			[type="email"]
 				border: 1px solid #EBEBEB
 				background: $w
@@ -664,7 +876,15 @@
 				+lig
 				color: $b1
 				padding: 14px 18px
-				min-width: 360px
+				max-width: 360px
+				width: 100%
+				+r(1366)
+					max-width: 360px
+				+r(1024)
+					font-size: 16px
+					max-width: 70%
+				+r(767)
+					max-width: 100%
 				&:hover
 					border: 1px solid $c9
 				&:focus,
@@ -673,8 +893,11 @@
 				&:placeholder
 					color: $b1
 					font-size: 18px
+					+r(1024)
+						font-size: 16px
 			[type="submit"]
-				min-width: 150px
+				max-width: 150px
+				width: 100%
 				color: $w
 				text-transform: uppercase
 				+reg
@@ -683,13 +906,19 @@
 				padding: 14px 18px
 				+br(40px)
 				font-size: 16px
+				+r(1024)
+					max-width: 30%
+				+r(767)
+					max-width: 100%
 
-		span
+		p
 			font-size: 12px
-			line-height: 130%
+			line-height: 140%
 			+lig
 			margin-top: 20px
 			display: block
+			a
+				color: $primary
 
 	.link
 		color: $primary
@@ -705,6 +934,8 @@
 //=============================================
 .faq
 	padding-bottom: 100px
+	+r(1024)
+		padding-bottom: 60px
 
 	&__list
 		margin-top: 40px
@@ -712,17 +943,24 @@
 		grid-template-columns: 1fr 1fr
 		grid-gap: 40px 30px
 		align-items: start
+		+r(1024)
+			grid-template-columns: 1fr
+			grid-gap: 30px
 
 	&__item
 		border-bottom: 1px solid $c9
 
 	&__header
 		padding-bottom: 30px
-		display: flex
+		display: grid
+		grid-template-columns: 1fr 35px
 		align-items: center
 		justify-content: space-between
 		cursor: pointer
 		user-select: none
+		+r(1024)
+			grid-template-columns: 1fr 30px
+			grid-gap: 20px
 
 		h4
 			font-size: 20px
@@ -748,6 +986,8 @@
 			font-size: 18px
 			+lig
 			line-height: 140%
+			+r(1024)
+				font-size: 16px
 
 	&__item.active &__text
 		max-height: 500px

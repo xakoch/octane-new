@@ -82,7 +82,7 @@ function initSwiperSlider() {
         const offersSlider = document.querySelector('.offers__slider');
         if (offersSlider) {
             const swiper = new Swiper('.offers__slider', {
-                slidesPerView: "auto",
+                slidesPerView: 1.2,
                 centeredSlides: true,
                 spaceBetween: 30,
                 // loop: true,
@@ -477,12 +477,19 @@ function initLazyLoad() {
 
         if (lazyImages.length === 0) return;
 
+        // Функция для определения мобильного устройства
+        const isMobile = () => window.innerWidth <= 768;
+
         // Создаем Intersection Observer
         const imageObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const img = entry.target;
-                    const highResSrc = img.getAttribute('data-src');
+                    const desktopSrc = img.getAttribute('data-src');
+                    const mobileSrc = img.getAttribute('data-mobile');
+
+                    // Выбираем источник в зависимости от размера экрана
+                    const highResSrc = (isMobile() && mobileSrc) ? mobileSrc : desktopSrc;
 
                     if (highResSrc) {
                         // Создаем новое изображение для предзагрузки
@@ -495,6 +502,7 @@ function initLazyLoad() {
                             setTimeout(() => {
                                 img.src = highResSrc;
                                 img.removeAttribute('data-src');
+                                img.removeAttribute('data-mobile');
                                 img.classList.add('loaded');
 
                                 setTimeout(() => {
