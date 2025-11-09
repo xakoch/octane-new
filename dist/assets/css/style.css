@@ -244,6 +244,8 @@ hr {
 .header {
     padding: 20px 0;
     background: #ffffff;
+    position: relative;
+    z-index: 100;
 }
 
 .header .container {
@@ -252,11 +254,22 @@ hr {
     justify-content: space-between;
 }
 
+@media only screen and (max-width: 1024px) {
+    .header .logo img {
+        height: 32px;
+    }
+}
+
 .header__menu {
     display: flex;
     align-items: center;
     grid-gap: 40px;
-    display: none;
+}
+
+@media only screen and (max-width: 1024px) {
+    .header__menu {
+        display: none;
+    }
 }
 
 .header__menu a {
@@ -283,6 +296,193 @@ hr {
 @media only screen and (max-width: 1024px) {
     .header__actions {
         display: none;
+    }
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+@media only screen and (max-width: 1024px) {
+    .burger {
+        display: flex;
+    }
+}
+
+.burger span {
+    width: 24px;
+    height: 2px;
+    background: #FF520A;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.burger span:nth-child(2) {
+    margin: 5px 0;
+}
+
+.burger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.burger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 1000;
+    visibility: hidden;
+}
+
+@media only screen and (max-width: 1024px) {
+    .mobile-menu {
+        display: block;
+    }
+}
+
+.mobile-menu.active {
+    visibility: visible;
+}
+
+.mobile-menu.active .mobile-menu__overlay {
+    opacity: 1;
+}
+
+.mobile-menu.active .mobile-menu__content {
+    transform: translateX(0);
+}
+
+.mobile-menu__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+.mobile-menu__content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 375px;
+    height: 100%;
+    background: #ffffff;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+@media only screen and (max-width: 480px) {
+    .mobile-menu__content {
+        max-width: 100%;
+    }
+}
+
+.mobile-menu__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu__header .logo img {
+    height: 32px;
+}
+
+.mobile-menu__close {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #FF520A;
+    transition: color 0.3s ease;
+}
+
+.mobile-menu__close:hover {
+    color: #FF520A;
+}
+
+.mobile-menu__nav {
+    flex: 1;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.mobile-menu__nav a {
+    padding: 16px 0;
+    font-size: 18px;
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: #1a1a1a;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    transition: color 0.3s ease;
+}
+
+.mobile-menu__nav a:hover {
+    color: #FF520A;
+}
+
+.mobile-menu__actions {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu__actions .btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 16px;
+    padding: 14px 20px;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 1024px) {
+    body.menu-open {
+        position: fixed;
+        width: 100%;
     }
 }
 
@@ -1851,8 +2051,10 @@ button.swiper-pagination-bullet {
     }
 }
 
-.hero__info {
-    order: 1;
+@media only screen and (max-width: 1024px) {
+    .hero__info {
+        order: 1;
+    }
 }
 
 .hero__actions {

@@ -68,6 +68,92 @@ function initWindowInnerheight() {
     }
 }
 
+/**
+ * Инициализация мобильного меню с интеграцией Lenis
+ */
+function initMobileMenu() {
+    try {
+        const burger = document.querySelector('.burger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuClose = document.querySelector('.mobile-menu__close');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu__overlay');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu__nav a');
+
+        if (!burger || !mobileMenu) return;
+
+        // Открытие меню
+        function openMenu() {
+            burger.classList.add('active');
+            mobileMenu.classList.add('active');
+            document.body.classList.add('menu-open');
+            
+            // Останавливаем Lenis
+            if (window.lenis) {
+                window.lenis.stop();
+            }
+        }
+
+        // Закрытие меню
+        function closeMenu() {
+            burger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            
+            // Запускаем Lenis обратно
+            if (window.lenis) {
+                window.lenis.start();
+            }
+        }
+
+        // Клик по бургеру
+        burger.addEventListener('click', () => {
+            if (mobileMenu.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+
+        // Закрытие по кнопке
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', closeMenu);
+        }
+
+        // Закрытие по overlay
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.addEventListener('click', closeMenu);
+        }
+
+        // Закрытие при клике на ссылку
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                closeMenu();
+            });
+        });
+
+        // Закрытие по ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+
+        // Закрытие при изменении размера окна (если стало больше 1024px)
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                if (window.innerWidth > 1024 && mobileMenu.classList.contains('active')) {
+                    closeMenu();
+                }
+            }, 250);
+        });
+
+    } catch (error) {
+        console.error("Error in " + arguments.callee.name + ":", error);
+    }
+}
+
 /**************************************************************
 * Swiper Sliders
 **************************************************************/
@@ -717,6 +803,7 @@ function initScript() {
     try {
         initLenis();
         initWindowInnerheight();
+        initMobileMenu();
         initSwiperSlider();
         initFaq();
         initSpecials();

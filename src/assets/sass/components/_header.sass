@@ -1,15 +1,22 @@
 .header
 	padding: 20px 0
 	background: $w
+	position: relative
+	z-index: 100
 	.container
 		display: flex
 		align-items: center
 		justify-content: space-between
+	.logo
+		img
+			+r(1024)
+				height: 32px
 	&__menu
 		display: flex
 		align-items: center
 		grid-gap: 40px
-		display: none
+		+r(1024)
+			display: none
 		a
 			+lig
 			font-size: 16px
@@ -24,3 +31,144 @@
 		grid-gap: 10px
 		+r(1024)
 			display: none
+
+// Бургер кнопка
+.burger
+	display: none
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	width: 40px
+	height: 40px
+	background: transparent
+	border: none
+	cursor: pointer
+	padding: 0
+	z-index: 1001
+	+r(1024)
+		display: flex
+	
+	span
+		width: 24px
+		height: 2px
+		background: $primary
+		border-radius: 2px
+		transition: all 0.3s ease
+		&:nth-child(2)
+			margin: 5px 0
+	
+	&.active
+		span
+			&:nth-child(1)
+				transform: translateY(7px) rotate(45deg)
+			&:nth-child(2)
+				opacity: 0
+				transform: translateX(-20px)
+			&:nth-child(3)
+				transform: translateY(-7px) rotate(-45deg)
+
+// Мобильное меню
+.mobile-menu
+	position: fixed
+	top: 0
+	right: 0
+	width: 100%
+	height: 100vh
+	height: 100dvh
+	z-index: 1000
+	visibility: hidden
+	+r(1024)
+		display: block
+	
+	&.active
+		visibility: visible
+		.mobile-menu__overlay
+			opacity: 1
+		.mobile-menu__content
+			transform: translateX(0)
+	
+	&__overlay
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background: rgba(0, 0, 0, 0.5)
+		opacity: 0
+		transition: opacity 0.3s ease
+		backdrop-filter: blur(4px)
+	
+	&__content
+		position: absolute
+		top: 0
+		right: 0
+		width: 100%
+		max-width: 375px
+		height: 100%
+		background: $w
+		transform: translateX(100%)
+		transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)
+		display: flex
+		flex-direction: column
+		overflow-y: auto
+		+r(480)
+			max-width: 100%
+	
+	&__header
+		display: flex
+		align-items: center
+		justify-content: space-between
+		padding: 20px
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+		.logo
+			img
+				height: 32px
+	
+	&__close
+		width: 40px
+		height: 40px
+		display: flex
+		align-items: center
+		justify-content: center
+		background: transparent
+		border: none
+		cursor: pointer
+		color: $primary
+		transition: color 0.3s ease
+		&:hover
+			color: $primary
+	
+	&__nav
+		flex: 1
+		padding: 30px 20px
+		display: flex
+		flex-direction: column
+		gap: 0
+		a
+			padding: 16px 0
+			font-size: 18px
+			+med
+			color: $b1
+			border-bottom: 1px solid rgba(0, 0, 0, 0.08)
+			transition: color 0.3s ease
+			&:hover
+				color: $primary
+	
+	&__actions
+		padding: 20px
+		display: flex
+		flex-direction: column
+		gap: 12px
+		border-top: 1px solid rgba(0, 0, 0, 0.1)
+		.btn
+			width: 100%
+			justify-content: center
+			font-size: 16px
+			padding: 14px 20px
+
+// Фикс для body когда меню открыто
+body.menu-open
+	overflow: hidden
+	+r(1024)
+		position: fixed
+		width: 100%
