@@ -1,0 +1,135 @@
+.comparison-widget{
+    display:none;
+}
+/* --- Шапка (Octane / Other) --- */
+/* Используем Flexbox для шапки */
+.comparison-header {
+    display: flex;
+    gap: 12px; /* Пространство между блоками */
+    margin: 40px 0px;
+}
+
+.header-box {
+    flex: 1; /* Каждый блок занимает 50% */
+    padding: 16px;
+    border-radius:8px;
+    font-weight: 500;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+    background:#fff;
+}
+
+/* Логотип Octane (CSS) */
+.octane-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.octane-logo-icon {
+    width: 32px;
+    height: 32px;
+    background-color: var(--octane-orange);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.octane-logo-icon::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+}
+.octane-logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+}
+
+/* Стилизация шапки */
+.header-box.octane-header {
+    border: 1px solid #FF520A;
+}
+
+.header-box.other-header {
+    background-color: #fff;
+    color: #333;
+}
+
+/* --- Блоки с фичами --- */
+.feature-block {
+    margin-top: 24px;
+}
+
+h3.feature-title {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1A1A1A;
+    margin-bottom: 10px !important;
+}
+
+/* Главный Flex-контейнер для сравнения */
+.feature-comparison {
+    display: flex;
+    gap: 12px; /* Пространство между колонками */
+}
+
+.feature-option {
+    flex: 1; /* Каждая опция занимает 50% */
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 300;
+    /* Внутренний Flex для иконки и текста */
+    display: flex;
+    align-items: center;
+}
+
+/* Стилизация иконок (✓ и ✗) */
+.feature-option .icon {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-right: 10px;
+    line-height: 1;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+/* Колонка Octane (слева) */
+.feature-option.octane-option {
+    background:#fff;
+    border: 1px solid #FF520A;
+    color: #1A1A1A;
+}
+.feature-option.octane-option .icon {
+    color: var(--octane-orange);
+    background:url(/assets/img/table-orange.svg) no-repeat center;
+}
+
+/* Колонка Other (справа) */
+.feature-option.other-option {
+    background-color: #fff;
+    color: #1A1A1A;
+}
+.feature-option.other-option .icon {
+    color: var(--text-grey);
+    background:url(/assets/img/table-gray.svg) no-repeat center;
+}
+.comparison-widget .table__actions{
+    margin:40px 0px;
+}
+@media only screen and (max-width:768px){
+	.comp-table{
+	    display:none;
+	}
+	.comparison-widget{
+	    display:block;
+	}
+}

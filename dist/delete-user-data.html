@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Delete User Data</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- favicon -->
+    <meta name="msapplication-TileColor" content="#FF520A">
+    <meta name="theme-color" content="#FF520A" />
+    <meta name="format-detection" content="telephone=no" />
+    <!-- style -->
+    <link rel="stylesheet" media="all" href="assets/css/style.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="main-wrap">
+        <header class="header">
+        	<div class="container">
+        		<a href="#" class="logo">
+        			<img src="assets/img/logo.svg" alt="">
+        		</a>
+        		<ul class="header__menu">
+        			<li>
+        				<a href="#">Home</a>
+        			</li>
+        			<li>
+        				<a href="#">How It Works</a>
+        			</li>
+        			<li>
+        				<a href="#">Features</a>
+        			</li>
+        			<li>
+        				<a href="#">Drivers</a>
+        			</li>
+        			<li>
+        				<a href="#">Help</a>
+        			</li>
+        		</ul>
+        		<div class="header__actions">
+        			<a class="btn btn-border" target="_blank" href="https://octane-web.com/">Login</a>
+        			<a class="btn btn-border" data-popup="form" href="#">Get card</a>
+        			<a class="btn btn-border" data-popup="app" href="#">download app</a>
+        		</div>
+        		<button class="burger" aria-label="Toggle menu">
+        			<span></span>
+        			<span></span>
+        			<span></span>
+        		</button>
+        	</div>
+        </header>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+        	<div class="mobile-menu__overlay"></div>
+        	<div class="mobile-menu__content">
+        		<div class="mobile-menu__header">
+        			<a href="#" class="logo">
+        				<img src="assets/img/logo.svg" alt="">
+        			</a>
+        			<button class="mobile-menu__close" aria-label="Close menu">
+        				<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        					<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        				</svg>
+        			</button>
+        		</div>
+        		<nav class="mobile-menu__nav">
+        			<a href="#">Home</a>
+        			<a href="#">Products</a>
+        			<a href="#">Drivers</a>
+        			<a href="#">Help</a>
+        		</nav>
+        		<div class="mobile-menu__actions">
+        			<a class="btn btn-primary" data-popup="card" href="#">Get Octane Card</a>
+        			<a class="btn btn-primary" data-popup="app" href="#">Download App</a>
+        		</div>
+        	</div>
+        </div>
+        
+        <section class="delete-user-data">
+            <div class="container">
+                <div class="delete-user-data__content">
+                    <div class="delete-user-data__icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 17C11.45 17 11 16.55 11 16V12C11 11.45 11.45 11 12 11C12.55 11 13 11.45 13 12V16C13 16.55 12.55 17 12 17ZM13 9H11V7H13V9Z" fill="currentColor"/>
+                        </svg>
+                    </div>
+        
+                    <div class="delete-user-data__info">
+                        <h2>Request to Delete Your User Data</h2>
+                        <h3>We respect your privacy and are committed to protecting your personal information</h3>
+                        <p>
+                            If you have uninstalled our app and would like to request deletion of your user data, please complete the form below.
+                        </p>
+        
+                        <div class="delete-user-data__notice">
+                            <p>Note: We may contact you to verify your identity before processing the request.</p>
+                        </div>
+        
+                        <p>
+                            This request is handled in accordance with applicable data privacy laws, including the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA).
+                        </p>
+        
+                        <p>
+                            Once submitted, your data will be reviewed and permanently deleted from our systems within the legally required timeframe.
+                        </p>
+                    </div>
+        
+                    <div class="delete-user-data__form">
+                        <?php echo do_shortcode('[contact-form-7 id="e7d6177" title="Deleate data form"]'); ?>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+        	<div class="container">
+        		<div class="footer__line"></div>
+        		<div class="footer__inner">
+        			<div class="footer__info">
+        				<a href="#">
+        					<img src="assets/img/logo.svg" alt="">
+        				</a>
+        				<div class="footer__text footer__text--desktop">
+        					<p>© 2025 Octane Fuel. All Rights Reserved.</p>
+        					<p>By using this site, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a></p>
+        				</div>
+        			</div>
+        			<div class="footer__links">
+        				<div class="footer__group">
+        					<h3>Connect</h3>
+        					<ul>
+        						<li>
+        							<img src="assets/img/ig.webp" alt="">
+        							<a href="#">Instagram</a>
+        						</li>
+        						<li>
+        							<img src="assets/img/fb.svg" alt="">
+        							<a href="#">Facebook</a>
+        						</li>
+        						<li>
+        							<img src="assets/img/in.svg" alt="">
+        							<a href="#">Linkedln</a>
+        						</li>
+        						<!-- <li>
+        							<img src="assets/img/yt.webp" alt="">
+        							<a href="#">YouTube</a>
+        						</li>
+        						<li>
+        							<img src="assets/img/tt.webp" alt="">
+        							<a href="#">TikTok</a>
+        						</li> -->
+        					</ul>
+        				</div>
+        				<div class="footer__group">
+        					<h3>Support</h3>
+        					<ul>
+        						<li>
+        							<a href="#">Apply for a Card</a>
+        						</li>
+        						<li>
+        							<a data-popup="app" href="#">Download the App</a>
+        						</li>
+        						<li>
+        							<a href="#">Activate Your Card</a>
+        						</li>
+        						<!-- <li>
+        							<a href="#">Manage Account</a>
+        						</li>
+        						<li>
+        							<a href="#">Report an Issue</a>
+        						</li>
+        						<li>
+        							<a href="#">Help Centre</a>
+        						</li> -->
+        					</ul>
+        				</div>
+        			</div>
+        			<div class="footer__text footer__text--mobile">
+        				<p>© 2025 Octane Fuel. All Rights Reserved.</p>
+        				<p>By using this site, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a></p>
+        			</div>
+        		</div>
+        	</div>
+        </footer>    </main>
+        
+    <a class="back" href="/">back to all pages</a>
+    <!-- END content -->
+
+    <!-- BEGIN scripts -->
+    <script defer type="text/javascript" src="assets/js/lib.min.js"></script>
+    <script defer type="text/javascript" src="assets/js/app.min.js"></script>
+    <!-- END scripts -->
+
+</body>
+</html>

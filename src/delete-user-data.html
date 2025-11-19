@@ -1,0 +1,41 @@
+---
+layout: default
+title: Delete User Data
+pagename: delete-user-data
+---
+
+<section class="delete-user-data">
+    <div class="container">
+        <div class="delete-user-data__content">
+            <div class="delete-user-data__icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 17C11.45 17 11 16.55 11 16V12C11 11.45 11.45 11 12 11C12.55 11 13 11.45 13 12V16C13 16.55 12.55 17 12 17ZM13 9H11V7H13V9Z" fill="currentColor"/>
+                </svg>
+            </div>
+
+            <div class="delete-user-data__info">
+                <h2>Request to Delete Your User Data</h2>
+                <h3>We respect your privacy and are committed to protecting your personal information</h3>
+                <p>
+                    If you have uninstalled our app and would like to request deletion of your user data, please complete the form below.
+                </p>
+
+                <div class="delete-user-data__notice">
+                    <p>Note: We may contact you to verify your identity before processing the request.</p>
+                </div>
+
+                <p>
+                    This request is handled in accordance with applicable data privacy laws, including the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA).
+                </p>
+
+                <p>
+                    Once submitted, your data will be reviewed and permanently deleted from our systems within the legally required timeframe.
+                </p>
+            </div>
+
+            <div class="delete-user-data__form">
+                <?php echo do_shortcode('[contact-form-7 id="e7d6177" title="Deleate data form"]'); ?>
+            </div>
+        </div>
+    </div>
+</section>
