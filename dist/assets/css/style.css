@@ -1159,6 +1159,90 @@ body.menu-open {
     background: #ffffff;
 }
 
+.form-popup__group.form-popup__checkbox {
+    text-align: left;
+    margin-top: 8px;
+}
+
+.form-popup__group.form-popup__checkbox .checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.form-popup__group.form-popup__checkbox .checkbox-label input[type=checkbox] {
+    position: relative;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background: #ffffff;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.form-popup__group.form-popup__checkbox .checkbox-label input[type=checkbox]:hover {
+    border-color: #FF520A;
+}
+
+.form-popup__group.form-popup__checkbox .checkbox-label input[type=checkbox]:checked {
+    background: #FF520A;
+    border-color: #FF520A;
+}
+
+.form-popup__group.form-popup__checkbox .checkbox-label input[type=checkbox]:checked::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 9px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.form-popup__group.form-popup__checkbox .checkbox-label input[type=checkbox]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 82, 10, 0.2);
+}
+
+.form-popup__group.form-popup__checkbox .checkbox-label .checkbox-text {
+    font-family: "Inter Tight", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #1a1a1a;
+}
+
+@media (max-width: 768px) {
+    .form-popup__group.form-popup__checkbox .checkbox-label .checkbox-text {
+        font-size: 13px;
+    }
+}
+
+.form-popup__group.form-popup__checkbox .checkbox-label .checkbox-text a {
+    color: #FF520A;
+    text-decoration: underline;
+    transition: opacity 0.2s ease;
+}
+
+.form-popup__group.form-popup__checkbox .checkbox-label .checkbox-text a:hover {
+    opacity: 0.8;
+}
+
 .form-popup__submit {
     font-family: "Inter Tight", sans-serif;
     font-optical-sizing: auto;
@@ -2430,18 +2514,111 @@ button.swiper-pagination-bullet {
     }
 }
 
-.facts__top img {
-    width: 100%;
-    height: auto;
-    transition: opacity 0.6s ease-in-out;
-    display: block;
+.facts__top {
+    position: relative;
     border-radius: 8px;
+    overflow: hidden;
+    height: 750px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .facts__top {
+        height: 650px;
+    }
 }
 
 @media only screen and (max-width: 767px) {
-    .facts__top img {
-        -o-object-fit: contain;
-        object-fit: contain;
+    .facts__top {
+        height: 770px;
+    }
+}
+
+.facts__top::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.9) 75%, #000 100%);
+    display: none;
+}
+
+@media only screen and (max-width: 767px) {
+    .facts__top::after {
+        display: block;
+    }
+}
+
+.facts__top--main {
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.6s ease-in-out;
+    display: block;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+@media only screen and (max-width: 767px) {
+    .facts__top--main {
+        display: none;
+    }
+}
+
+.facts__top--main2 {
+    display: none;
+    -o-object-fit: cover;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+    .facts__top--main2 {
+        display: block;
+    }
+}
+
+.facts__top--desktop {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .facts__top--desktop {
+        top: 40px;
+        right: 40px;
+        max-width: 40%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .facts__top--desktop {
+        max-width: 70%;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .facts__top--desktop {
+        display: none;
+    }
+}
+
+.facts__top--mobile {
+    display: none;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+@media only screen and (max-width: 767px) {
+    .facts__top--mobile {
+        display: block;
     }
 }
 
@@ -3755,46 +3932,37 @@ button.swiper-pagination-bullet {
     }
 }
 
-.delete-user-data h2 {
-    font-size: 48px;
+.delete-user-data h1 {
+    font-size: 36px;
     line-height: 120%;
     font-family: "Inter Tight", sans-serif;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-    margin-bottom: 30px !important;
-    text-align: center;
+    margin: 30px 0 !important;
 }
 
 @media only screen and (max-width: 1024px) {
-    .delete-user-data h2 {
-        font-size: 32px;
-        margin-bottom: 20px !important;
+    .delete-user-data h1 {
+        font-size: 26px;
+        margin: 20px 0 !important;
     }
 }
 
-@media only screen and (max-width: 767px) {
-    .delete-user-data h2 {
-        font-size: 28px;
-    }
-}
-
-.delete-user-data h3 {
-    font-size: 24px;
+.delete-user-data h2 {
+    font-size: 28px;
     font-family: "Inter Tight", sans-serif;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-    margin-bottom: 30px !important;
-    text-align: center;
-    color: #FF520A;
+    margin: 30px 0 !important;
     line-height: 140%;
 }
 
 @media only screen and (max-width: 1024px) {
-    .delete-user-data h3 {
+    .delete-user-data h2 {
         font-size: 20px;
-        margin-bottom: 20px !important;
+        margin: 20px 0 !important;
     }
 }
 
@@ -3816,23 +3984,32 @@ button.swiper-pagination-bullet {
     }
 }
 
+@media only screen and (max-width: 767px) {
+    .delete-user-data p {
+        font-size: 14px;
+    }
+}
+
 .delete-user-data__content {
     background: #ffffff;
     padding: 60px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     position: relative;
     overflow: hidden;
+    color: #1a1a1a;
 }
 
 @media only screen and (max-width: 1024px) {
     .delete-user-data__content {
         padding: 40px 30px;
+        font-size: 16px;
     }
 }
 
 @media only screen and (max-width: 767px) {
     .delete-user-data__content {
         padding: 30px 20px;
+        font-size: 14px;
     }
 }
 

@@ -316,6 +316,70 @@
 				color: $b1
 				background: $w
 
+		&.form-popup__checkbox
+			text-align: left
+			margin-top: 8px
+
+			.checkbox-label
+				display: flex
+				align-items: flex-start
+				gap: 12px
+				cursor: pointer
+				user-select: none
+
+				input[type="checkbox"]
+					position: relative
+					flex-shrink: 0
+					width: 20px
+					height: 20px
+					margin-top: 2px
+					cursor: pointer
+					appearance: none
+					border: 2px solid #ccc
+					border-radius: 4px
+					background: $w
+					transition: all 0.2s ease
+					padding: 0
+
+					&:hover
+						border-color: $primary
+
+					&:checked
+						background: $primary
+						border-color: $primary
+
+						&::after
+							content: ''
+							position: absolute
+							left: 5px
+							top: 2px
+							width: 5px
+							height: 9px
+							border: solid $w
+							border-width: 0 2px 2px 0
+							transform: rotate(45deg)
+
+					&:focus
+						outline: none
+						box-shadow: 0 0 0 3px rgba(255, 82, 10, 0.2)
+
+				.checkbox-text
+					+reg
+					font-size: 14px
+					line-height: 1.5
+					color: $b1
+
+					@media (max-width: 768px)
+						font-size: 13px
+
+					a
+						color: $primary
+						text-decoration: underline
+						transition: opacity 0.2s ease
+
+						&:hover
+							opacity: 0.8
+
 	&__submit
 		+bold
 		width: 100%

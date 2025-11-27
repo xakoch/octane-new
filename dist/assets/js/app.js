@@ -760,6 +760,15 @@ function initPopups() {
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
 
+                // Validate checkbox for savingForm
+                if (id === 'savingForm') {
+                    const agreementCheckbox = form.querySelector('#savingFormAgreement');
+                    if (agreementCheckbox && !agreementCheckbox.checked) {
+                        alert('Please agree to the Terms & Conditions and Privacy Policy to continue.');
+                        return;
+                    }
+                }
+
                 const submitBtn = form.querySelector('.form-popup__submit');
                 const originalText = submitBtn.textContent;
 
@@ -767,19 +776,40 @@ function initPopups() {
                 submitBtn.textContent = 'Sending...';
 
                 const formData = new FormData(form);
-                const data = Object.fromEntries(formData);
 
                 try {
-                    // Имитация отправки на сервер
-                    await new Promise(resolve => setTimeout(resolve, 1500));
+                    // Проверяем ID формы
+                    if (id === 'savingForm') {
+                        // Логика для Saving Form -> Отправка в Zapier
+                        const webhookURL = "https://hooks.zapier.com/hooks/catch/21273692/u8kmoji/";
+                        
+                        const response = await fetch(webhookURL, {
+                            method: 'POST',
+                            body: formData // Отправляем объект FormData напрямую
+                        });
 
-                    console.log(`Form ${id} submitted:`, data);
+                        if (!response.ok) {
+                            throw new Error(`Zapier request failed with status ${response.status}`);
+                        }
+                        
+                        console.log(`Form ${id} submitted to Zapier successfully`);
 
+                    } else {
+                        // Логика для Card Form (или других) -> Имитация отправки
+                        const data = Object.fromEntries(formData);
+                        await new Promise(resolve => setTimeout(resolve, 1500));
+                        console.log(`Form ${id} submitted locally:`, data);
+                    }
+
+                    // Общий код успеха для всех форм
                     alert(message);
-
                     form.reset();
+                    
                     const popup = form.closest('.form-popup');
-                    if (popup) closePopup(popup);
+                    // Убедись, что функция closePopup доступна в этой области видимости
+                    if (popup && typeof closePopup === 'function') {
+                        closePopup(popup);
+                    }
 
                 } catch (error) {
                     console.error('Form submission error:', error);

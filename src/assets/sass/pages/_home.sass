@@ -180,14 +180,63 @@
 		+r(1024)
 			display: none
 	&__top
-		img
-			width: 100%
-			height: auto
-			transition: opacity 0.6s ease-in-out
+		position: relative
+		+br(8px)
+		overflow: hidden
+		height: 750px
+		+r(1200)
+			height: 650px
+		+r(767)
+			height: 770px
+	&__top::after
+		content: ''
+		display: block
+		position: absolute
+		bottom: 0
+		left: 0
+		right: 0
+		width: 100%
+		height: 100%
+		background: linear-gradient(to bottom, rgba(255,255,255,.0) 0%, rgba(0, 0, 0, 0.9) 75%, #000 100%)
+		display: none
+		+r(767)
 			display: block
-			+br(8px)
-			+r(767)
-				object-fit: contain
+	&__top--main
+		width: 100%
+		height: 100%
+		transition: opacity 0.6s ease-in-out
+		display: block
+		object-fit: cover
+		+r(767)
+			display: none
+	&__top--main2
+		display: none
+		object-fit: cover
+		height: 100%
+		width: 100%
+		+r(767)
+			display: block
+	&__top--desktop
+		position: absolute
+		top: 60px
+		right: 60px
+		+r(1200)
+			top: 40px
+			right: 40px
+			max-width: 40%
+		+r(1024)
+			max-width: 70%
+		+r(767)
+			display: none
+	&__top--mobile
+		display: none
+		position: absolute
+		bottom: 30px
+		left: 50%
+		transform: translateX(-50%)
+		z-index: 2
+		+r(767)
+			display: block
 	&__bottom
 		display: grid
 		grid-template-columns: repeat(3, 1fr)

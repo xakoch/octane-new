@@ -98,7 +98,10 @@ pagename: home
     <section class="facts">
         <div class="container">
             <div class="facts__top">
-                <img src="assets/img/3d_truck.webp" data-src="assets/img/3d_truck.png" data-mobile="assets/img/2.webp" alt="" class="lazy-load">
+                <img class="facts__top--main" src="assets/img/3d_truck_horiz.webp" alt="">
+                <img class="facts__top--main2" src="assets/img/3d_truck_vert.webp" alt="">
+                <img class="facts__top--desktop" src="assets/img/screenshot-desktop.webp" alt="">
+                <img class="facts__top--mobile" src="assets/img/screenshot-mobile.webp" alt="">
             </div>
             <div class="facts__bottom">
                 <div class="facts__item" data-delay="0">
@@ -147,7 +150,7 @@ pagename: home
                             </div>
                             <div class="how__info">
                                 <h4>Apply in Minutes</h4>
-                                <p>No contracts. Soft credit check only. Just an $8 setup.</p>
+                                <p>No contracts. Soft credit check only. Just an No set up fee.</p>
                             </div>
                         </div>
                         <div class="how__item">
@@ -990,129 +993,3 @@ pagename: home
             </div>
         </div>
     </section>
-
-    <!-- app download popup -->
-    <div class="app-popup" id="appPopup">
-        <div class="app-popup__overlay"></div>
-        <div class="app-popup__content">
-            <button class="app-popup__close" type="button">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </button>
-            <h3>Download Octane App</h3>
-            <p>Get the app and start saving on fuel today</p>
-            <div class="app-popup__buttons">
-                <a href="https://apps.apple.com/uz/app/octane-fuel/id6744539302" class="app-popup__btn" target="_blank" rel="noopener noreferrer">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M23.8373 17.0933C23.8155 13.9933 26.36 12.4933 26.48 12.4267C25.0013 10.2933 22.6373 9.99333 21.76 9.96C19.7333 9.74667 17.7707 11.1467 16.7413 11.1467C15.6907 11.1467 14.064 9.98667 12.3573 10.02C10.1707 10.0533 8.13867 11.3067 7.00267 13.2667C4.66133 17.2533 6.41867 23.0533 8.65867 26.24C9.77867 27.8 11.104 29.5467 12.8053 29.4867C14.4693 29.42 15.088 28.4733 17.0933 28.4733C19.0773 28.4733 19.6533 29.4867 21.3973 29.4467C23.1947 29.42 24.3413 27.8733 25.4187 26.2933C26.7093 24.5067 27.2187 22.7467 27.2453 22.6667C27.2027 22.6533 23.864 21.3733 23.8373 17.0933Z" fill="currentColor"/>
-                        <path d="M20.6293 7.62667C21.5413 6.50667 22.168 4.96 21.9973 3.38667C20.6773 3.44 19.0507 4.34667 18.096 5.44C17.248 6.40667 16.4933 7.99333 16.6853 9.49333C18.1813 9.60667 19.7173 8.74667 20.6293 7.62667Z" fill="currentColor"/>
-                    </svg>
-                    <div class="app-popup__btn-text">
-                        <span>Download on the</span>
-                        <strong>App Store</strong>
-                    </div>
-                </a>
-                <a href="https://play.google.com/store/apps/details?id=com.tss.fuelapp" class="app-popup__btn" target="_blank" rel="noopener noreferrer">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4.26667 2.66667C3.84 2.93333 3.54667 3.46667 3.54667 4.13333V27.8667C3.54667 28.5333 3.84 29.0667 4.26667 29.3333L4.37333 29.44L17.0667 16.7467V16.5867V16.4267L4.37333 3.73333L4.26667 2.66667Z" fill="currentColor"/>
-                        <path d="M21.28 21.0134L16.96 16.6934V16.5334V16.3734L21.28 12.0534L21.4133 12.1334L26.4533 15.04C27.92 15.8934 27.92 17.2801 26.4533 18.1334L21.4133 21.04L21.28 21.0134Z" fill="currentColor"/>
-                        <path d="M21.4133 20.9733L16.9333 16.5333L4.26666 29.2C4.8 29.76 5.62666 29.8267 6.58666 29.3067L21.4133 20.9733Z" fill="currentColor"/>
-                        <path d="M21.4133 12.0933L6.58666 3.75998C5.62666 3.23998 4.8 3.30665 4.26666 3.86665L16.9333 16.5333L21.4133 12.0933Z" fill="currentColor"/>
-                    </svg>
-                    <div class="app-popup__btn-text">
-                        <span>Get it on</span>
-                        <strong>Google Play</strong>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-    <!-- /app download popup -->
-
-    <!-- form popup -->
-    <div class="form-popup" id="formPopup">
-        <div class="form-popup__overlay"></div>
-        <div class="form-popup__content">
-            <button class="form-popup__close" type="button">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </button>
-            <h3>Start Saving Now</h3>
-            <p>Fill out the form and we'll contact you shortly</p>
-            <form class="form-popup__form" id="savingForm">
-                <div class="form-popup__group">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                </div>
-                <div class="form-popup__group">
-                    <input type="email" name="email" placeholder="Email Address" required>
-                </div>
-                <div class="form-popup__group">
-                    <input type="tel" name="phone" placeholder="Phone Number" required>
-                </div>
-                <div class="form-popup__group">
-                    <input type="text" name="company" placeholder="Company Name (Optional)">
-                </div>
-                <div class="form-popup__group">
-                    <select name="fleet_size" required>
-                        <option value="" disabled selected>Fleet Size</option>
-                        <option value="1-5">1-5 trucks</option>
-                        <option value="6-10">6-10 trucks</option>
-                        <option value="11-25">11-25 trucks</option>
-                        <option value="26-50">26-50 trucks</option>
-                        <option value="50+">50+ trucks</option>
-                    </select>
-                </div>
-                <button type="submit" class="form-popup__submit">Submit Application</button>
-            </form>
-        </div>
-    </div>
-    <!-- /form popup -->
-
-    <!-- get card popup -->
-    <div class="form-popup" id="cardPopup">
-        <div class="form-popup__overlay"></div>
-        <div class="form-popup__content">
-            <button class="form-popup__close" type="button">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-            </button>
-            <h3>Get Your Octane Card</h3>
-            <p>Apply in minutes and start saving on fuel</p>
-            <form class="form-popup__form" id="cardForm">
-                <div class="form-popup__group">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                </div>
-                <div class="form-popup__group">
-                    <input type="email" name="email" placeholder="Email Address" required>
-                </div>
-                <div class="form-popup__group">
-                    <input type="tel" name="phone" placeholder="Phone Number" required>
-                </div>
-                <div class="form-popup__group">
-                    <input type="text" name="company" placeholder="Company Name (Optional)">
-                </div>
-                <div class="form-popup__group">
-                    <select name="fleet_size" required>
-                        <option value="" disabled selected>Fleet Size</option>
-                        <option value="1-5">1-5 trucks</option>
-                        <option value="6-10">6-10 trucks</option>
-                        <option value="11-25">11-25 trucks</option>
-                        <option value="26-50">26-50 trucks</option>
-                        <option value="50+">50+ trucks</option>
-                    </select>
-                </div>
-                <div class="form-popup__group">
-                    <select name="card_type" required>
-                        <option value="" disabled selected>Card Type</option>
-                        <option value="individual">Individual Driver</option>
-                        <option value="fleet">Fleet Manager</option>
-                    </select>
-                </div>
-                <button type="submit" class="form-popup__submit">Apply Now</button>
-            </form>
-        </div>
-    </div>
-    <!-- /get card popup -->
